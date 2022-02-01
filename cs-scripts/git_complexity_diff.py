@@ -36,7 +36,7 @@ def parse_complexity_changes_in(revision, git_diff):
 		return not marks_empty(line) and line[0] == '-'
 	# Extractors:
 	def complexity_from_modified(line):
-		return ccomplexity_calculations.omplexity_of(line[1:])
+		return complexity_calculations.complexity_of(line[1:])
 
 	for line in git_diff.split("\n"):
 		if marks_empty(line):
@@ -63,15 +63,15 @@ def delta_complexity_of(aggregated_stats):
 ######################################################################
 
 def as_csv(result):
-    print 'rev,growth,nadded,addedtotal,addedmean,sd,nremoved,removedtotal,removedmean'
+    print('rev,growth,nadded,addedtotal,addedmean,sd,nremoved,removedtotal,removedmean')
     for rev, stats in result:
-    	added = stats.added
-    	removed = stats.removed
-    	growth = delta_complexity_of(stats)
-    	fields_of_interest = [rev, growth, added.n_revs, added.total, round(added.mean(),2), round(added.sd(),2), 
+        added = stats.added
+        removed = stats.removed
+        growth = delta_complexity_of(stats)
+        fields_of_interest = [rev, growth, added.n_revs, added.total, round(added.mean(),2), round(added.sd(),2), 
     					      removed.n_revs, removed.total, round(removed.mean(), 2)]
-    	printable = [str(field) for field in fields_of_interest]
-    	print ','.join(printable)
+        printable = [str(field) for field in fields_of_interest]
+        print(','.join(printable))
 
 ######################################################################
 ## Main

@@ -65,8 +65,8 @@ var svg = d3.select("body").append("svg")
     .attr("height", outerDiameter)
   .append("g")
     .attr("transform", "translate(" + margin + "," + margin + ")");
-
 d3.json("hib_hotspot_proto.json", function(error, root) {
+    console.log(root);
   var focus = root,
       nodes = pack.nodes(root);
 

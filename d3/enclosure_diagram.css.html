@@ -1,0 +1,47 @@
+<style>
+    .node {
+        cursor: pointer;
+    }
+
+    .node:hover {
+        stroke: #3A445A;
+        stroke-width: 0.5px;
+    }
+
+    .node--root {
+        stroke: #777;
+        stroke-width: 1px;
+    }
+
+    .node--leaf {
+        fill: white;
+        stroke: #777;
+        stroke-width: 1px;
+    }
+
+    .label {
+        font: 12px "Helvetica Light", Helvetica, Arial, sans-serif;
+        text-anchor: middle;
+        /* fill: white; */
+        fill: #3A445A;
+        /* text-shadow: 0 1px 0 #fff, 1px 0 0 #fff, -1px 0 0 #fff, 0 -1px 0 #fff; */
+    }
+
+    /* .label,
+    .node--root,
+    .node--leaf {
+        pointer-events: none;
+    }
+    */
+
+    div.tooltip {
+        position: absolute;
+        text-align: center;
+        padding: 4px;
+        font: 12px sans-serif;
+        background: lightsteelblue;
+        border: 0px;
+        border-radius: 8px;
+        pointer-events: none;
+    }
+</style>
