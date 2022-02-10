@@ -2,13 +2,13 @@ require.undef('main_dev_enclosure_diagram_js');
 
 define('main_dev_enclosure_diagram_js', ['d3'], function (d3) {
     function draw(container, json_file) {
-        console.log(container.getBoundingClientRect());
-        var margin = 20,
-            outerDiameter = container.getBoundingClientRect().width - 200,
-            innerDiameter = outerDiameter - margin - margin;
-        
-        var x = d3.scale.linear().range([0, innerDiameter]);
+        container.style.position = "relative";
+        var outerDiameterOffset = 200;
+        var outerDiameter = container.getBoundingClientRect().width - outerDiameterOffset;
+        var margin = 20;
+        var innerDiameter = outerDiameter - margin - margin;
 
+        var x = d3.scale.linear().range([0, innerDiameter]);
         var y = d3.scale.linear().range([0, innerDiameter]);
 
         var color = d3.scale.linear()

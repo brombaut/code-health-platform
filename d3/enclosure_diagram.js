@@ -1,15 +1,19 @@
 require.undef('enclosure_diagram_js');
+// const d3 = require("./d3_3.4.6/d3.min.js");
+
+require.config({paths: {d3: 'd3/d3_3.4.6/d3.min'}});
 
 define('enclosure_diagram_js', ['d3'], function (d3) {
+// define('enclosure_diagram_js', [], function () {
 
-    function draw(container, json_file) {
-        console.log(container.getBoundingClientRect());
-        var margin = 20,
-            outerDiameter = container.getBoundingClientRect().width - 200,
-            innerDiameter = outerDiameter - margin - margin;
+    function draw(container, json_file, enc_type) {
+        container.style.position = "relative";
+        var outerDiameterOffset = 200;
+        var outerDiameter = container.getBoundingClientRect().width - outerDiameterOffset;
+        var margin = 20;
+        var innerDiameter = outerDiameter - margin - margin;
         
         var x = d3.scale.linear().range([0, innerDiameter]);
-
         var y = d3.scale.linear().range([0, innerDiameter]);
 
         var color = d3.scale.linear()
@@ -29,7 +33,7 @@ define('enclosure_diagram_js', ['d3'], function (d3) {
             .attr("transform", "translate(" + margin + "," + margin + ")");
 
         // Define the div for the tooltip
-        var div = d3.select(container).append("div")	
+        var tooltipEl = d3.select(container).append("div")	
             .attr("class", "tooltip")				
             .style("opacity", 0);
         
@@ -48,26 +52,46 @@ define('enclosure_diagram_js', ['d3'], function (d3) {
             .attr("transform", function (d) { return "translate(" + d.x + "," + d.y + ")"; })
             .attr("r", function (d) { return d.r; })
             .style("fill", function (d) {
-                return d.weight > 0.0 ? "darkred" :
-                    d.children ? color(d.depth) : "WhiteSmoke";
+                if (enc_type == "hotspot") {
+                    return d.weight > 0.0 ? "darkred" :
+                        d.children ? color(d.depth) : "WhiteSmoke";
+                } else if (enc_type == "main_dev") {
+                    return d.weight > 0.0 ? 
+                        d.author_color :
+                        d.children ? 
+                            color(d.depth) : "WhiteSmoke";
+                } else {
+                    throw new Error("Unknown enclosure diagram type: " + enc_type)
+                }
             })
-            .style("fill-opacity", function (d) { return d.weight; })
+            .style("fill-opacity", function (d) {
+                if (enc_type == "hotspot") {
+                    return d.weight; 
+                } else if (enc_type == "main_dev") {
+                    return d.effort;
+                } else {
+                    throw new Error("Unknown enclosure diagram type: " + enc_type)
+                }
+            })
             .on("click", function (d) { return zoom(focus == d ? root : d); })
             .on("mouseenter", (d) => {
-                // console.log(d.value / d.parent.value);
-                const rect = d3.event.target.getBoundingClientRect();
-                // console.log(rect.y);
-                div.transition()		
-                    .duration(200)		
-                    .style("opacity", .9);		
-                div.html(d.name)	
-                    .style("left", (rect.x) + "px")		
-                    .style("top", (rect.y) + "px");	
+                tooltipEl.transition()
+                    .duration(200)
+                    .style("opacity", .9);
+                tooltipEl.html(d.name);
+                const circleBoundingRect = d3.event.target.getBoundingClientRect();
+                const topOffset = circleBoundingRect.top - container.getBoundingClientRect().top - margin*1.2;
+                const leftOffset = circleBoundingRect.left - 
+                    container.getBoundingClientRect().left + 
+                    (circleBoundingRect.width/2) - 
+                    (tooltipEl[0][0].getBoundingClientRect().width/2);
+                tooltipEl.style("left", (leftOffset) + "px");
+                tooltipEl.style("top", (topOffset) + "px");
             })
-            .on("mouseout", function(d) {		
-                div.transition()		
-                    .duration(500)		
-                    .style("opacity", 0);	
+            .on("mouseout", function(d) {
+                tooltipEl.transition()
+                    .duration(500)
+                    .style("opacity", 0);
             });
 
         svg.append("g").selectAll("text")

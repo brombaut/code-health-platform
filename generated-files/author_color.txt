@@ -1,2 +1,4 @@
 author,color
-Adam Petersen,#B567E5
+Drew DeVault,#E7E302
+FixYourShit,#0E0CA2
+Dennis Fischer,#2D3E33

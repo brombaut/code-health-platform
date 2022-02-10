@@ -1,2 +1,4 @@
 .ipynb_checkpoints/
 .idea/
+call-graph-generation/PyCG
+call-graph-generation/d3-graphviz
