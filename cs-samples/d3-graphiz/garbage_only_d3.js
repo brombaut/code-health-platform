@@ -71,10 +71,8 @@ function makeRoot(data) {
 function makeSvg() {
     const result = d3.select(container()).append("svg")
         .attr("viewBox", `-${outerWidth() / 2} -${outerHeight() / 2} ${outerWidth()} ${outerHeight()}`)
-        // .style("display", "block")
         .style("background", color(0))
         .style("cursor", "pointer");
-        // .on("click", (event) => zoom(event, root));
     return result
 }
 
