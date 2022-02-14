@@ -1,200 +1,229 @@
 require.undef('enclosure_diagram_js');
-// const d3 = require("./d3_3.4.6/d3.min.js");
 
-require.config({paths: {d3: 'd3/d3_3.4.6/d3.min'}});
+require.config({paths: {d3: 'd3/d3_7.3.0/d3.min'}});
+
+function makeColor(d3) {
+    const result = d3.scaleLinear()
+    .domain([-1, 5])
+    .range(["hsl(185,60%,99%)", "hsl(187,40%,70%)"])
+    .interpolate(d3.interpolateHcl);
+    return (c) => result(c);
+}
+
+function makeDiameters(container) {
+    const containerRect = container.getBoundingClientRect();
+    const outerDiameterOffset = 10;
+    const margin = 10;
+    const outerW = containerRect.width - outerDiameterOffset;
+    const innerW = outerW - 2*margin;
+    const outerH = containerRect.width - outerDiameterOffset;
+    const innerH = outerH - 2*margin;
+    const result = {
+        outerW,
+        innerW,
+        outerH,
+        innerH
+    }
+    return result;
+}
+
+function makeRoot(d3, data, diameters) {
+    const pack = (data) => d3.pack()
+        .size([diameters.innerW, diameters.innerH])
+        .padding(3)
+        (d3.hierarchy(data)
+            .sum(d => Number(d.size))
+            .sort((a, b) => b.size - a.size))
+    const result = pack(data);
+    return result;
+}
+
+function makeSvg(d3, container, diameters, color) {
+    const minX = diameters.outerW / 2;
+    const minY = diameters.outerH / 2;
+    const width = diameters.outerW;
+    const height = diameters.outerH;
+    const result = d3.select(container).append("svg")
+        .attr("viewBox", `-${minX}, -${minY}, ${width}, ${height}`)
+        .style("background", color(0))
+        .style("cursor", "pointer");
+    return result
+}
+
+function makeTooltip(d3, container) {
+    const result = d3.select(container).append("div")	
+        .attr("class", "tooltip")				
+        .style("opacity", 0)
+        .style("z-index", 100);
+    return result;
+}
+
+function makeNode(d3, container, svg, root, tooltipEl, enc_type, zoom, color, focus) {
+    const tooltipFunctions = {
+        show: (event, d) => {
+            tooltipEl.transition()
+                .duration(200)
+                .style("opacity", .9);
+            tooltipEl.html(d.data.name);
+            const targetCircleBoundingRect = event.target.getBoundingClientRect();
+            const topOffset = targetCircleBoundingRect.top - container.getBoundingClientRect().top - 20*1.2;
+            
+            let leftOffset = 0;
+            leftOffset += targetCircleBoundingRect.left; // How far left the edge of the target circle is
+            leftOffset += targetCircleBoundingRect.width/2;  // We want the tooltip in the center, so add half the width of the circle
+            leftOffset -= container.getBoundingClientRect().left; // Account for the container position
+            leftOffset -= tooltipEl.node().getBoundingClientRect().width/2  // Subtract half the width of the tooltip to make sure it appears centered
+            tooltipEl.style("left", (leftOffset) + "px");
+            tooltipEl.style("top", (topOffset) + "px");
+        },
+        hide: () => {
+            tooltipEl.transition()
+                .duration(500)
+                .style("opacity", 0);
+        },
+    }
+
+    const highlightFunctions = {
+        highlightDependentsOf: (d, clickedEl) => {
+            if (d.children) return; // Don't highlight when hovering on directory
+            const dependentDs = d3.selectAll(".node--leaf").nodes().filter(() => Math.random() < 0.1);
+            // console.log(dependentDs);
+            dependentDs.map((d) => {
+                d.classList.add("dependent");
+            });
+        },
+        highlightSelected: (clickedEl) => {
+            clickedEl.classList.add("selected");
+        },
+        removeHighlights: () => {
+            d3.selectAll(".selected, .dependent").nodes().map((el) => {
+                el.classList.remove("selected");
+                el.classList.remove("dependent");
+            });
+        },
+    }
+
+    const result = svg.append("g")
+        .selectAll("circle")
+        .data(root.descendants())
+        .enter().append('circle')
+        .attr("class", function (d) {
+            if (!d.parent) return "node node--root";
+            if (d.children) return "node";
+            return "node node--leaf"
+        })
+        .attr("transform", function (d) { return "translate(" + d.x + "," + d.y + ")"; })
+        .style("fill", (d) => {
+            if (enc_type == "hotspot") {
+                if (d.data.weight > 0.0 ) return "darkred";
+                else if (d.children) return color(d.depth);
+                else return "WhiteSmoke";
+            } else if (enc_type == "main_dev") {
+                if (d.data.weight > 0.0 ) return d.data.author_color;
+                else if (d.children) return color(d.depth);
+                else return "WhiteSmoke";
+            } else {
+                throw new Error("Unknown enclosure diagram type: " + enc_type)
+            }
+        })
+        .style("fill-opacity", (d) => {
+            if (enc_type == "hotspot") {
+                return d.data.weight; 
+            } else if (enc_type == "main_dev") {
+                return d.data.effort;
+            } else {
+                throw new Error("Unknown enclosure diagram type: " + enc_type)
+            }
+        })
+        .on("mouseenter", (event, d) => {
+            tooltipFunctions.show(event, d);
+        })
+        .on("mouseout", (event, d) => {
+            tooltipFunctions.hide(event, d);
+        })
+        .on('click', (event, d) => {
+            const clickedEl = event.target;
+            const clickedSelectedLeaf = clickedEl.classList.contains('selected');
+            const clickedDirectory = !clickedEl.classList.contains('node--leaf')
+            if (clickedSelectedLeaf || clickedDirectory) {
+                // Click already selected node
+                highlightFunctions.removeHighlights();
+            } else {
+                highlightFunctions.removeHighlights();
+                highlightFunctions.highlightSelected(clickedEl);
+                highlightFunctions.highlightDependentsOf(d, clickedEl);
+            }
+        })
+        // .on("wheel", (event, d) => {
+        //     const findNodeToZoomInTo = (focus, selectedChild) => {
+        //         let result = selectedChild;
+        //         while (result.parent && result.parent != focus) {
+        //             result = result.parent;
+        //         }
+        //         return result;
+        //     };
+        //     const zoomIn = event.wheelDeltaY >= 0;
+        //     const nodeToMoveTo = zoomIn ? findNodeToZoomInTo(focus, d) : focus.parent ? focus.parent : focus;
+        //     zoom(null, nodeToMoveTo);
+        // });
+    return result;
+}
 
 define('enclosure_diagram_js', ['d3'], function (d3) {
-// define('enclosure_diagram_js', [], function () {
-
     function draw(container, json_file, enc_type) {
         container.style.position = "relative";
-        var outerDiameterOffset = 200;
-        var outerDiameter = container.getBoundingClientRect().width - outerDiameterOffset;
-        var margin = 20;
-        var innerDiameter = outerDiameter - margin - margin;
+        let view;
+        const color = makeColor(d3);
+        const diameters = makeDiameters(container);
+        const root = makeRoot(d3, json_file, diameters);
+        let focus = root;
+        const svg = makeSvg(d3, container, diameters, color);
+        const tooltipEl = makeTooltip(d3, container);
+        const node = makeNode(d3, container, svg, root, tooltipEl, enc_type, zoom, color, focus);
+
+        zoomTo({
+            x: root.x,
+            y: root.y,
+            diameter: root.r * 2
+        });
+
+        function zoomTo(toZoomTo) {
+            const k = diameters.innerW / toZoomTo.diameter;
+            view = toZoomTo;
         
-        var x = d3.scale.linear().range([0, innerDiameter]);
-        var y = d3.scale.linear().range([0, innerDiameter]);
+            const transformEl = (d) => {
+                const translateX = (d.x - toZoomTo.x) * k;
+                const translateY = (d.y - toZoomTo.y) * k;
+                return `translate(${translateX},${translateY})`
+            }
+            node.attr("transform", transformEl);
+            node.attr("r", d => d.r * k);
+        }
 
-        var color = d3.scale.linear()
-            .domain([-1, 5])
-            .range(["hsl(185,60%,99%)", "hsl(187,40%,70%)"])
-            .interpolate(d3.interpolateHcl);
-
-        var pack = d3.layout.pack()
-            .padding(2)
-            .size([innerDiameter, innerDiameter])
-            .value(function (d) { return d.size; })
-
-        var svg = d3.select(container).append("svg")
-            .attr("width", outerDiameter)
-            .attr("height", outerDiameter)
-            .append("g")
-            .attr("transform", "translate(" + margin + "," + margin + ")");
-
-        // Define the div for the tooltip
-        var tooltipEl = d3.select(container).append("div")	
-            .attr("class", "tooltip")				
-            .style("opacity", 0);
-        
-        var root = json_file;
-        var focus = root,
-            nodes = pack.nodes(root);
-
-        svg.append("g").selectAll("circle")
-            .data(nodes)
-            .enter().append("circle")
-            .attr("class", function (d) {
-                if (!d.parent) return "node node--root";
-                if (d.children) return "node";
-                return "node node--leaf"
-            })
-            .attr("transform", function (d) { return "translate(" + d.x + "," + d.y + ")"; })
-            .attr("r", function (d) { return d.r; })
-            .style("fill", function (d) {
-                if (enc_type == "hotspot") {
-                    return d.weight > 0.0 ? "darkred" :
-                        d.children ? color(d.depth) : "WhiteSmoke";
-                } else if (enc_type == "main_dev") {
-                    return d.weight > 0.0 ? 
-                        d.author_color :
-                        d.children ? 
-                            color(d.depth) : "WhiteSmoke";
-                } else {
-                    throw new Error("Unknown enclosure diagram type: " + enc_type)
-                }
-            })
-            .style("fill-opacity", function (d) {
-                if (enc_type == "hotspot") {
-                    return d.weight; 
-                } else if (enc_type == "main_dev") {
-                    return d.effort;
-                } else {
-                    throw new Error("Unknown enclosure diagram type: " + enc_type)
-                }
-            })
-            .on("click", function (d) { return zoom(focus == d ? root : d); })
-            .on("mouseenter", (d) => {
-                tooltipEl.transition()
-                    .duration(200)
-                    .style("opacity", .9);
-                tooltipEl.html(d.name);
-                const circleBoundingRect = d3.event.target.getBoundingClientRect();
-                const topOffset = circleBoundingRect.top - container.getBoundingClientRect().top - margin*1.2;
-                const leftOffset = circleBoundingRect.left - 
-                    container.getBoundingClientRect().left + 
-                    (circleBoundingRect.width/2) - 
-                    (tooltipEl[0][0].getBoundingClientRect().width/2);
-                tooltipEl.style("left", (leftOffset) + "px");
-                tooltipEl.style("top", (topOffset) + "px");
-            })
-            .on("mouseout", function(d) {
-                tooltipEl.transition()
-                    .duration(500)
-                    .style("opacity", 0);
-            });
-
-        svg.append("g").selectAll("text")
-            .data(nodes)
-            .enter().append("text")
-            .attr("class", "label")
-            .attr("transform", function (d) { return "translate(" + d.x + "," + d.y + ")"; })
-            .style("fill-opacity", function (d) { return d.parent === root ? 1 : 0; })
-            .style("display", function (d) {
-                if (d.parent === root) return null;
-                return "none";
-            })
-            .text(function (d) { return d.name; });
-
-        d3.select(window)
-            .on("click", function () { zoom(root); });
-
-        function zoom(d, i) {
-            var focus0 = focus;
+        function zoom(event, d) {
+            const focus0 = focus;
             focus = d;
-
-            var k = innerDiameter / d.r / 2;
-            x.domain([d.x - d.r, d.x + d.r]);
-            y.domain([d.y - d.r, d.y + d.r]);
-            d3.event.stopPropagation();
-
-            var transition = d3.selectAll("text,circle").transition()
-                .duration(d3.event.altKey ? 7500 : 750)
-                .attr("transform", function (d) { return "translate(" + x(d.x) + "," + y(d.y) + ")"; });
-
-            transition.filter("circle")
-                .attr("r", function (d) { return k * d.r; });
-
-            transition.filter("text")
-                .filter(function (d) { return d.parent === focus || d.parent === focus0; })
-                .style("fill-opacity", function (d) { return d.parent === focus ? 1 : 0; })
-                .each("start", function (d) {
-                    if (d.parent === focus) {
-                        // Only show text label if parent is focused and d is not a leaf node
-                        if (d.children || d.value / d.parent.value >= 0.02) {   
-                            this.style.display = "inline";
+            const transition = svg.transition()
+                .duration(750)
+                .tween("zoom", d => {
+                    const translatedView = [
+                        view.x,
+                        view.y,
+                        view.diameter,
+                    ];
+                    const i = d3.interpolateZoom(translatedView, [focus.x, focus.y, focus.r * 2]);
+                    return (t) => {
+                        const toZoomTo = {
+                            x: i(t)[0],
+                            y: i(t)[1],
+                            diameter: i(t)[2],
                         }
-                    }
-                    
-                })
-                .each("end", function (d) {
-                    if (d.parent !== focus) this.style.display = "none";
+                        // zoomTo(toZoomTo, node, label); // I don't know why node and label were passed here...?
+                        zoomTo(toZoomTo);
+                    };
                 });
         }
 
-        // d3.select(self.frameElement).style("height", outerDiameter + "px");
     }
     return draw;
 });
-
-// element.append('<small>&#x25C9; &#x25CB; &#x25EF; Loaded enclosure_diagram.js &#x25CC; &#x25CE; &#x25CF;</small>');
-
-
-// // First undefine 'circles' so we can easily reload this file.
-// require.undef('circles');
-
-// define('circles', ['d3'], function (d3) {
-
-//     function draw(container, data, width, height) {
-//         width = width || 600;
-//         height = height || 200;
-//         var svg = d3.select(container).append("svg")
-//             .attr('width', width)
-//             .attr('height', height)
-//             .append("g");
-
-//         var x = d3.scaleLinear()
-//             .domain([0, data.length - 1])
-//             .range([50, width - 50]);
-
-//         var circles = svg.selectAll('circle').data(data);
-
-//         circles.enter()
-//             .append('circle')
-//             .attr("cx", function (d, i) {return x(i);})
-//             .attr("cy", height / 2)
-//             .attr("r", 20)
-//             .style("fill", "#1f77b4")
-//             .style("opacity", 0.7)
-//             .on('mouseover', function() {
-//                 d3.select(this)
-//                   .interrupt('fade')
-//                   .style('fill', '#ff850e')
-//                   .style("opacity", 1)
-//                   .attr("r", function (d) {return 1.1 * d + 10;});
-//             })
-//             .on('mouseout', function() {
-//                 d3.select(this)
-//                     .transition('fade').duration(500)
-//                     .style("fill", "#1f77b4")
-//                     .style("opacity", 0.7)
-//                     .attr("r", function (d) {return d;});
-//             })
-//             .transition().duration(2000)
-//             .attr("r", function (d) {return d;});
-//     }
-
-//     return draw;
-// });
-
-// element.append('<small>&#x25C9; &#x25CB; &#x25EF; Loaded circles.js &#x25CC; &#x25CE; &#x25CF;</small>');
