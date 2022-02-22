@@ -1,38 +1,29 @@
 
-language,filename,blank,comment,code,"github.com/AlDanial/cloc v 1.82  T=0.05 s (741.2 files/s, 36826.7 lines/s)"
-Clojure,/home/brombaut/work/code-maat/src/code_maat/analysis/logical_coupling.clj,23,14,145
-Clojure,/home/brombaut/work/code-maat/test/code_maat/end_to_end/scenario_tests.clj,18,19,91
-Clojure,/home/brombaut/work/code-maat/test/code_maat/analysis/logical_coupling_test.clj,15,5,89
-Markdown,/home/brombaut/work/code-maat/README.md,60,0,87
-Clojure,/home/brombaut/work/code-maat/src/code_maat/app/app.clj,13,6,85
-Clojure,/home/brombaut/work/code-maat/test/code_maat/parsers/svn_test.clj,7,5,79
-Clojure,/home/brombaut/work/code-maat/src/code_maat/parsers/svn.clj,10,11,53
-Clojure,/home/brombaut/work/code-maat/src/code_maat/parsers/hiccup_based_parser.clj,13,17,50
-Clojure,/home/brombaut/work/code-maat/src/code_maat/analysis/authors.clj,8,11,47
-Clojure,/home/brombaut/work/code-maat/test/code_maat/parsers/git_test.clj,9,8,37
-Clojure,/home/brombaut/work/code-maat/src/code_maat/analysis/entities.clj,8,4,36
-Clojure,/home/brombaut/work/code-maat/src/code_maat/core.clj,5,4,35
-Clojure,/home/brombaut/work/code-maat/src/code_maat/parsers/limitters.clj,6,8,34
-XML,/home/brombaut/work/code-maat/test/code_maat/end_to_end/simple.xml,0,0,31
-Clojure,/home/brombaut/work/code-maat/src/code_maat/parsers/git.clj,4,17,31
-Clojure,/home/brombaut/work/code-maat/src/code_maat/dataset/dataset.clj,9,13,27
-Clojure,/home/brombaut/work/code-maat/test/code_maat/parsers/mercurial_test.clj,7,4,26
-Clojure,/home/brombaut/work/code-maat/test/code_maat/analysis/authors_test.clj,7,4,26
-Clojure,/home/brombaut/work/code-maat/test/code_maat/dataset/dataset_test.clj,5,4,25
-Clojure,/home/brombaut/work/code-maat/src/code_maat/test/data_driven.clj,4,4,23
-Clojure,/home/brombaut/work/code-maat/src/code_maat/parsers/mercurial.clj,4,20,21
-Clojure,/home/brombaut/work/code-maat/test/code_maat/analysis/entities_test.clj,4,4,21
-Clojure,/home/brombaut/work/code-maat/test/code_maat/analysis/test_data.clj,6,5,20
-Clojure,/home/brombaut/work/code-maat/src/code_maat/analysis/summary.clj,4,6,18
-Clojure,/home/brombaut/work/code-maat/project.clj,1,4,17
-Clojure,/home/brombaut/work/code-maat/src/code_maat/output/csv.clj,3,5,14
-Clojure,/home/brombaut/work/code-maat/test/code_maat/end_to_end/svn_live_data_test.clj,3,4,14
-Clojure,/home/brombaut/work/code-maat/test/code_maat/end_to_end/mercurial_live_data_test.clj,3,4,11
-Clojure,/home/brombaut/work/code-maat/test/code_maat/end_to_end/git_live_data_test.clj,3,4,11
-Clojure,/home/brombaut/work/code-maat/src/code_maat/parsers/xml.clj,3,4,10
-Clojure,/home/brombaut/work/code-maat/src/code_maat/analysis/workarounds.clj,2,4,7
-Clojure,/home/brombaut/work/code-maat/src/code_maat/output/filters.clj,2,4,5
-Clojure,/home/brombaut/work/code-maat/src/code_maat/analysis/math.clj,3,4,5
-XML,/home/brombaut/work/code-maat/test/code_maat/end_to_end/empty.xml,0,0,3
-Markdown,/home/brombaut/work/code-maat/doc/intro.md,1,0,2
-SUM,,273,230,1236
+language,filename,blank,comment,code,"github.com/AlDanial/cloc v 1.82  T=0.09 s (290.6 files/s, 79432.4 lines/s)"
+Jupyter Notebook,/home/brombaut/work/CISC873_TermProject/analytics/dl_lib_evo_analytics.ipynb,0,3852,706
+JSON,/home/brombaut/work/CISC873_TermProject/repo-collection/aoo_repos.json,0,0,311
+Python,/home/brombaut/work/CISC873_TermProject/data_transform_scripts/parse_import_diffs.py,49,11,272
+Python,/home/brombaut/work/CISC873_TermProject/data_transform_scripts/parse_call_diffs.py,51,11,267
+Python,/home/brombaut/work/CISC873_TermProject/data_transform_scripts/tests/test_function_calls_collector.py,11,25,227
+Python,/home/brombaut/work/CISC873_TermProject/data_transform_scripts/function_calls_finder.py,23,3,155
+Python,/home/brombaut/work/CISC873_TermProject/repo_analyzer.py,18,0,112
+Python,/home/brombaut/work/CISC873_TermProject/data_transform_scripts/tests/test_imports.py,17,21,96
+Python,/home/brombaut/work/CISC873_TermProject/data_transform_scripts/repo_call_diffs_totals.py,19,0,95
+Python,/home/brombaut/work/CISC873_TermProject/data_transform_scripts/repo_import_diffs_totals.py,19,1,83
+Python,/home/brombaut/work/CISC873_TermProject/data_transform_scripts/parse_import_jsons_to_csv.py,17,0,66
+Python,/home/brombaut/work/CISC873_TermProject/data_transform_scripts/parse_call_jsons_to_csv.py,17,12,65
+Python,/home/brombaut/work/CISC873_TermProject/repo-collection/aoo_repo_scraper.py,21,13,63
+Python,/home/brombaut/work/CISC873_TermProject/data_transform_scripts/write_repo_release_to_csv.py,13,1,52
+Python,/home/brombaut/work/CISC873_TermProject/data_transform_scripts/source_imports_parser.py,5,1,48
+Bourne Shell,/home/brombaut/work/CISC873_TermProject/extract_imports_and_calls.sh,10,8,44
+Python,/home/brombaut/work/CISC873_TermProject/data_transform_scripts/utils.py,14,0,34
+Python,/home/brombaut/work/CISC873_TermProject/data_transform_scripts/function_calls_collector.py,5,0,31
+Python,/home/brombaut/work/CISC873_TermProject/data_transform_scripts/library_imports_finder.py,5,1,29
+Markdown,/home/brombaut/work/CISC873_TermProject/README.md,15,0,23
+XML,/home/brombaut/work/CISC873_TermProject/.idea/vcs.xml,0,0,9
+XML,/home/brombaut/work/CISC873_TermProject/.idea/modules.xml,0,0,8
+Bourne Shell,/home/brombaut/work/CISC873_TermProject/extract_diffs_and_timelines.sh,3,0,6
+XML,/home/brombaut/work/CISC873_TermProject/.idea/inspectionProfiles/profiles_settings.xml,0,0,6
+XML,/home/brombaut/work/CISC873_TermProject/.idea/misc.xml,0,0,4
+Bourne Shell,/home/brombaut/work/CISC873_TermProject/run_tests.sh,1,0,3
+SUM,,333,3960,2815
