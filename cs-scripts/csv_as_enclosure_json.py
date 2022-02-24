@@ -20,51 +20,52 @@ class MergeError(Exception):
         Exception.__init__(self, message)
 
 
-class Merged(object):
-    def __init__(self):
-        self._all_modules_with_complexity = {}
-        self._merged = {}
-
-    def sorted_result(self):
-        # Sort on descending order:
-        ordered = sorted(self._merged.items(),
-                         key=lambda item: item[1][0], reverse=True)
-        return ordered
-
-    def extend_with(self, name, freqs):
-        if name in self._all_modules_with_complexity:
-            complexity = self._all_modules_with_complexity[name]
-            self._merged[name] = freqs, complexity
-
-    def record_detected(self, name, complexity):
-        self._all_modules_with_complexity[name] = complexity
-
-
-def write_csv(stats):
-    print('module,revisions,code')
-    for s in stats:
-        name, (f, c) = s
-        print(name + ',' + f + ',' + c)
+# class Merged(object):
+#     def __init__(self):
+#         self._all_modules_with_complexity = {}
+#         self._merged = {}
+#
+#     def sorted_result(self):
+#         # Sort on descending order:
+#         ordered = sorted(self._merged.items(),
+#                          key=lambda item: item[1][0], reverse=True)
+#         return ordered
+#
+#     def extend_with(self, name, freqs):
+#         if name in self._all_modules_with_complexity:
+#             complexity = self._all_modules_with_complexity[name]
+#             self._merged[name] = freqs, complexity
+#
+#     def record_detected(self, name, complexity):
+#         # TODO: What is this?
+#         self._all_modules_with_complexity[name] = complexity
 
 
-def parse_complexity(merged, row):
-    name = row[1][2:]
-    complexity = row[4]
-    merged.record_detected(name, complexity)
-
-
-def parse_freqs(merged, row):
-    name = row[0]
-    freqs = row[1]
-    merged.extend_with(name, freqs)
-
-
-def merge(revs_file, comp_file):
-    merged = Merged()
-    parse_csv(merged, comp_file, parse_complexity,
-              expected_format='language,filename,blank,comment,code')
-    parse_csv(merged, revs_file, parse_freqs, expected_format='entity,n-revs')
-    write_csv(merged.sorted_result())
+# def write_csv(stats):
+#     print('module,revisions,code')
+#     for s in stats:
+#         name, (f, c) = s
+#         print(name + ',' + f + ',' + c)
+# 
+# 
+# def parse_complexity(merged, row):
+#     name = row[1][2:]
+#     complexity = row[4]
+#     merged.record_detected(name, complexity)
+# 
+# 
+# def parse_freqs(merged, row):
+#     name = row[0]
+#     freqs = row[1]
+#     merged.extend_with(name, freqs)
+# 
+# 
+# def merge(revs_file, comp_file):
+#     merged = Merged()
+#     parse_csv(merged, comp_file, parse_complexity,
+#               expected_format='language,filename,blank,comment,code')
+#     parse_csv(merged, revs_file, parse_freqs, expected_format='entity,n-revs')
+#     write_csv(merged.sorted_result())
 
 ######################################################################
 # Parse input
@@ -84,7 +85,7 @@ def validate_content_by(heading, expected):
 def parse_csv(filename, parse_action, expected_format=None, remove_project_path=False, path_column=None):
     def read_heading_from(r):
         p = next(r)
-        while p == []:
+        while not p:
             p = next(r)
         return p	
     rows = list()
@@ -105,9 +106,12 @@ def extract_project_path(rows, path_column):
 
 
 class StructuralElement(object):
-    def __init__(self, name, complexity):
+    def __init__(self, name, file_language, code_lines, comment_lines, blank_lines):
         self.name = name
-        self.complexity = complexity
+        self.file_language = file_language
+        self.code_lines = code_lines
+        self.comment_lines = comment_lines
+        self.blank_lines = blank_lines
 
     def parts(self):
         return self.name.split('/')
@@ -122,8 +126,11 @@ def parse_structural_element(csv_row, project_path=None):
     if project_path is not None:
         name = name.removeprefix(project_path)
     # name = csv_row[1][2:]
-    complexity = csv_row[4]
-    return StructuralElement(name, complexity)
+    file_language = csv_row[0]
+    blank_lines = csv_row[2]
+    comment_lines = csv_row[3]
+    code_lines = csv_row[4]
+    return StructuralElement(name, file_language, code_lines, comment_lines, blank_lines)
 
 
 def make_element_weight_parser(weight_column):
@@ -136,28 +143,27 @@ def make_element_weight_parser(weight_column):
         return name, weight
     return parse_element_weight
 
+
 ######################################################################
 # Calculating weights from the given CSV analysis file
 ######################################################################
-
-
 def module_weight_calculator_from(analysis_results):
     max_raw_weight = max(analysis_results, key=lambda e: e[1])
     max_value = max_raw_weight[1]
-    normalized_weights = dict([(name, (1.0 / max_value) * n)
-                              for name, n in analysis_results])
+    normalized_weights = dict([
+        (name, {"normalized_weight": (1.0 / max_value) * n, "raw_weight": n}) for name, n in analysis_results
+    ])
 
     def normalized_weight_for(module_name):
         if module_name in normalized_weights:
             return normalized_weights[module_name]
-        return 0.0
+        return {"normalized_weight": 0.0, "raw_weight": 0.0}
     return normalized_weight_for
+
 
 ######################################################################
 # Building the structure of the system
 ######################################################################
-
-
 def _matching_part_in(hierarchy, part):
     return next((x for x in hierarchy if x['name'] == part), None)
 
@@ -172,10 +178,17 @@ def _ensure_branch_exists(hierarchy, branch):
 
 
 def _add_leaf(hierarchy, module, weight_calculator, name):
-    # TODO: augment with weight here!
-    new_leaf = {'name': name, 'children': [],
-                'size': module.complexity,
-                'weight': weight_calculator(module.name)}
+    module_weights = weight_calculator(module.name)
+    new_leaf = {
+        'name': name,
+        'children': [],
+        'file_language': module.file_language,
+        'code_lines': module.code_lines,
+        'comment_lines': module.comment_lines,
+        'blank_lines': module.blank_lines,
+        'normalized_weight': module_weights["normalized_weight"],
+        'raw_weight': module_weights["raw_weight"]
+    }
     hierarchy.append(new_leaf)
     return hierarchy
 
@@ -207,23 +220,18 @@ def generate_structure_from(modules, weight_calculator):
     structure = {'name': 'root', 'children': hierarchy}
     return structure
 
+
 ######################################################################
 # Output
 ######################################################################
-
-
 def write_json(result):
     # print(json.dumps(result, indent=2))
     print(json.dumps(result))
 
+
 ######################################################################
 # Main
 ######################################################################
-
-# TODO: turn it around: parse the weights first and add them to individual elements
-# as the raw structure list is built!
-
-
 def run(args):
     raw_weights = parse_csv(
         args.weights,
@@ -247,13 +255,9 @@ def run(args):
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(
         description='Generates a JSON document suitable for enclosure diagrams.')
-    parser.add_argument('--structure', required=True,
-                        help='A CSV file generated by cloc')
-    parser.add_argument('--weights', required=True,
-                        help='A CSV file with hotspot results from Code Maat')
-    parser.add_argument('--weightcolumn', type=int, default=1,
-                        help="The index specifying the columnt to use in the weight table")
-    # TODO: add arguments to specify which CSV columns to use!
+    parser.add_argument('--structure', required=True, help='A CSV file generated by cloc')
+    parser.add_argument('--weights', required=True, help='A CSV file with hotspot results from Code Maat')
+    parser.add_argument('--weightcolumn', type=int, default=1, help="The index specifying the column to use in the weight table")
 
     args = parser.parse_args()
     run(args)

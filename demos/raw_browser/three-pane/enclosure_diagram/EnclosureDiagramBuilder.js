@@ -9,8 +9,8 @@ class EnclosureDiagramBuilder {
             .size([this.elementProxy.size(), this.elementProxy.size()])
             .padding(3)
             (this.d3R.hierarchy(data)
-                .sum(d => Number(d.size))
-                .sort((a, b) => b.size - a.size))
+                .sum(d => Number(d.code_lines))
+                .sort((a, b) => b.code_lines - a.code_lines))
         function addShownAttr(s) {
             if (!s) return;
             s.show = false;
@@ -48,11 +48,11 @@ class EnclosureDiagramBuilder {
             })
             .attr("transform", (d) => `translate(${d.x},${d.y})`)
             .style("fill", (d) => {
-                if (d.data.weight > 0.0 ) return "darkred";
+                if (d.data.normalized_weight > 0.0 ) return "darkred";
                 else if (d.children) return this.elementProxy.color(d.depth);
                 else return "WhiteSmoke";
             })
-            .style("fill-opacity", (d) => d.data.weight)
+            .style("fill-opacity", (d) => d.data.normalized_weight)
             .on("click", callbacks.onClick)
             .on("mouseenter", callbacks.onMouseEnter)
             .on("mouseleave", callbacks.onMouseLeave);
