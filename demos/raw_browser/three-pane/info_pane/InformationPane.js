@@ -4,6 +4,16 @@ class InformationPane {
             EventTypes.ENC_NODE_SELECTED,
             ({node}) => this.newNodeSelected(node)
         )
+
+        this.nodeMouseEnterReceiver = new EventReceiver(
+            EventTypes.ENC_NODE_MOUSE_ENTER,
+            ({node}) => this.handleNodeMouseEnter(node)
+        )
+
+        this.nodeMouseLeaveReceiver = new EventReceiver(
+            EventTypes.ENC_NODE_MOUSE_LEAVE,
+            ({node}) => this.handleNodeMouseLeave(node)
+        )
     }
 
     newNodeSelected(node) {
@@ -86,7 +96,8 @@ class InformationPane {
 
     selectedNodeSubModuleEl(node) {
         const spanEl = document.createElement("span");
-        spanEl.classList.add("name");
+        spanEl.setAttribute("id", `node-sub-module-${this.makeNodeIdStr(node)}`);
+        spanEl.classList.add("node-sub-module");
         if (node.children) {
             spanEl.classList.add("directory");
             spanEl.textContent = `${node.data.name}/`;
@@ -117,4 +128,34 @@ class InformationPane {
         const callback = () => new InfoNodeMouseLeaveEvent(d).dispatch();
         return () => callback();
     }
+
+    handleNodeMouseEnter(node) {
+        document.querySelectorAll(".node-sub-module").forEach((el) => el.classList.remove("hovering"));
+        let associatedNodeSubmoduleSpanEl = null;
+        let temp = node;
+        while (temp.parent) {
+            associatedNodeSubmoduleSpanEl = document.querySelector(`#node-sub-module-${this.makeNodeIdStr(temp)}`);
+            if (associatedNodeSubmoduleSpanEl) break;
+            temp = temp.parent;
+        }
+        
+        if (associatedNodeSubmoduleSpanEl) {
+            associatedNodeSubmoduleSpanEl.classList.add("hovering");
+        }
+    }
+
+    handleNodeMouseLeave(node) {
+        document.querySelectorAll(".node-sub-module").forEach((el) => el.classList.remove("hovering"));
+    }
+
+    makeNodeIdStr(node) {
+        const idPath = []
+        let temp = node;
+        while (temp.parent) {
+            idPath.unshift(CSS.escape(temp.data.name.replaceAll(".", "")));
+            temp = temp.parent;
+        }
+        return idPath.join("-");
+    }
+
 }

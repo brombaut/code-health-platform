@@ -33,7 +33,7 @@ class EnclosureDiagramBuilder {
         return result;
     }
 
-    makeNodes(svg, root, clickCallback) {
+    makeNodes(svg, root, callbacks) {
         const result = svg
             .append("g")
             .attr("class", "g-node")
@@ -53,7 +53,9 @@ class EnclosureDiagramBuilder {
                 else return "WhiteSmoke";
             })
             .style("fill-opacity", (d) => d.data.weight)
-            .on("click", clickCallback);
+            .on("click", callbacks.onClick)
+            .on("mouseenter", callbacks.onMouseEnter)
+            .on("mouseleave", callbacks.onMouseLeave);
             
         return result;
     }

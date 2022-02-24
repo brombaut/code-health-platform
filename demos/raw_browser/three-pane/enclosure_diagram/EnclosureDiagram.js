@@ -6,7 +6,12 @@ class EnclosureDiagram {
         const builder = new EnclosureDiagramBuilder(d3, this.elementProxy);
         this.root = builder.makeRoot(data);
         this.svg = builder.makeSvg();
-        this.nodes = builder.makeNodes(this.svg, this.root, (event, d) => this.onNodeClick(event, d));
+        const callbacks = {
+            onClick: (event, d) => this.onNodeClick(d),
+            onMouseEnter: (event, d) => this.onNodeHover(d, true),
+            onMouseLeave: (event, d) => this.onNodeHover(d, false),
+        }
+        this.nodes = builder.makeNodes(this.svg, this.root, callbacks);
         this.labels = builder.makeLabels(this.svg, this.root);
 
         this.zoomer = new Zoomer()
@@ -31,8 +36,16 @@ class EnclosureDiagram {
         )
     }
 
-    onNodeClick(event, d) {
+    onNodeClick(d) {
         this.setSelectedNode(d);
+    }
+
+    onNodeHover(d, enter) {
+        if (enter) {
+            new EncNodeMouseEnterEvent(d).dispatch();
+        } else {
+            new EncNodeMouseLeaveEvent(d).dispatch();
+        }
     }
 
     setSelectedNode(node) {

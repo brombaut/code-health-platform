@@ -42,21 +42,22 @@
 }
 
 
-#module-children li .name {
+#module-children li .node-sub-module {
     font-weight: bold;
     color: var(--selectable-color);;
 }
 
-#module-children li .name:hover {
+#module-children li .node-sub-module:hover,
+#module-children li .node-sub-module.hovering {
     cursor: pointer;
     color: var(--hover-color);
 }
 
-/* #module-children li .name.directory {
+/* #module-children li .node-sub-module.directory {
     color:cadetblue;
 }
 
-#module-children li .name.file {
+#module-children li .node-sub-module.file {
     color:cadetblue;
 } */
 
