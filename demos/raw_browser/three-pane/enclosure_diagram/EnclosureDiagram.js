@@ -14,15 +14,16 @@ class EnclosureDiagram {
         this.nodes = builder.makeNodes(this.svg, this.root, callbacks);
         this.labels = builder.makeLabels(this.svg, this.root);
 
-        this.zoomer = new Zoomer()
-        this.zoomer.zoomTo(this.zoomer.makeToZoomTo(this.root), this);
+        this.focus = this.root;
+        this.zoomer = new Zoomer(d3)
+        this.zoomer.zoomTo(this.zoomer.makeToZoomTo(this.focus), this);
 
         // Initially set selected node to root
         this.setSelectedNode(this.root);
 
         this.nodeClickedReceiver = new EventReceiver(
             EventTypes.INFO_NODE_SELECTED,
-            ({node}) => this.setSelectedNode(node)
+            ({node}) => this.onNodeClick(node)
         )
 
         this.nodeMouseEnterReceiver = new EventReceiver(
@@ -36,8 +37,13 @@ class EnclosureDiagram {
         )
     }
 
-    onNodeClick(d) {
-        this.setSelectedNode(d);
+    onNodeClick(node) {
+        if (!node) {
+            node = this.root;
+        }
+        this.setSelectedNode(node);
+        // Zoom to node
+        this.zoomer.zoom(node, this);
     }
 
     onNodeHover(node, enter) {
@@ -49,9 +55,7 @@ class EnclosureDiagram {
     }
 
     setSelectedNode(node) {
-        if (!node) {
-            node = this.root;
-        }
+        this.focus = node;
         // Remove selected
         this.d3R.selectAll(".selected").nodes().map((el) => {
             el.classList.remove("selected");

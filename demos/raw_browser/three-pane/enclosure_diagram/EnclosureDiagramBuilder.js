@@ -26,7 +26,8 @@ class EnclosureDiagramBuilder {
         const minY = this.elementProxy.containerHeight() / 2;
         const width = this.elementProxy.containerWidth();
         const height = this.elementProxy.containerHeight();
-        const result = this.d3R.select(this.elementProxy.container()).append("svg")
+        const result = this.d3R.select(this.elementProxy.container())
+            .append("svg")
             .attr("viewBox", `-${minX}, -${minY}, ${width}, ${height}`)
             // .style("background", this.elementProxy.color(0))
             .style("cursor", "pointer");

@@ -18,7 +18,11 @@ class InformationPane {
 
     newNodeSelected(node) {
         this.setSystemPath(node);
-        this.setSelectedNodeSubModules(node);
+        if (node.children) {
+            this.setSelectedNodeSubModules(node);
+        } else {
+            this.setSelectedLeafNodeInformation(node);
+        }
     }
 
     setSystemPath(node) {
@@ -72,12 +76,12 @@ class InformationPane {
             el.classList.add("selectable");
             el.addEventListener("mouseenter", this.makeInfoNodeMouseEnterCallback(node));
             el.addEventListener("mouseleave", this.makeInfoNodeMouseLeaveCallback(node));
+            el.addEventListener("click", this.makeInfoNodeSelectedCallback(node));
         } else {
             // if not selectable, it is selected
             el.classList.add("selected");
         }
         el.textContent = node.data.name;
-        el.addEventListener("click", this.makeInfoNodeSelectedCallback(node));
         return el;
     }
 
@@ -162,6 +166,10 @@ class InformationPane {
             temp = temp.parent;
         }
         return idPath.join("-");
+    }
+
+    setSelectedLeafNodeInformation(node) {
+        console.log(node);
     }
 
 }

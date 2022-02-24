@@ -1,5 +1,6 @@
 class Zoomer {
-    constructor() {
+    constructor(d3) {
+        this.d3R = d3;
         this.view = null;
     }
 
@@ -23,5 +24,34 @@ class Zoomer {
         encDiagram.nodes.attr("transform", transformEl);
         encDiagram.nodes.attr("r", d => d.r * k);
         encDiagram.labels.attr("transform", transformEl);
+    }
+
+    zoom(node, encDiagram) {
+        const zoomTween = (d) => {
+            const startingViewToZoomTo = this.view;
+            const startingView = [
+                startingViewToZoomTo.x,
+                startingViewToZoomTo.y,
+                startingViewToZoomTo.diameter
+            ];
+            const endingViewToZoomTo = this.makeToZoomTo(node);
+            const endingView = [
+                endingViewToZoomTo.x,
+                endingViewToZoomTo.y,
+                endingViewToZoomTo.diameter
+            ];
+            const i = this.d3R.interpolateZoom(startingView, endingView);
+            return (t) => {
+                const toZoomTo = {
+                    x: i(t)[0],
+                    y: i(t)[1],
+                    diameter: i(t)[2],
+                }
+                this.zoomTo(toZoomTo, encDiagram);
+            };
+        }
+        const transition = encDiagram.svg.transition()
+            .duration(750)
+            .tween("zoom", zoomTween);
     }
 }
