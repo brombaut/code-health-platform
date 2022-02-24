@@ -1,0 +1,62 @@
+
+#system-path #prefix-label {
+    /* background-color: rgb(197, 197, 197); */
+    color: rgb(117, 117, 117);
+    padding: 0px 4px;
+    border-radius: 4px;
+    font-weight: bold;
+}
+
+#system-path #prefix-label.selected {
+    color: var(--selected-color);
+}
+
+#system-path #prefix-label:hover {
+    cursor: pointer;
+    color: var(--hover-color);
+}
+
+#system-path .system-component-separator,
+#system-path .system-component {
+    margin: 0px 2px;
+    font-weight: bold;
+    color:rgb(83, 83, 83);
+}
+
+#system-path .system-component.selectable {
+    color: var(--selectable-color);
+}
+
+#system-path .system-component.selected {
+    color: var(--selected-color);
+}
+
+#system-path .system-component.selectable:hover {
+    cursor: pointer;
+    color: var(--hover-color);
+}
+
+#module-children {
+    overflow: auto;
+    height: 300px;
+}
+
+
+#module-children li .name {
+    font-weight: bold;
+    color: var(--selectable-color);;
+}
+
+#module-children li .name:hover {
+    cursor: pointer;
+    color: var(--hover-color);
+}
+
+/* #module-children li .name.directory {
+    color:cadetblue;
+}
+
+#module-children li .name.file {
+    color:cadetblue;
+} */
+

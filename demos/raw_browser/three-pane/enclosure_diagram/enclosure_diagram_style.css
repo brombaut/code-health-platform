@@ -1,0 +1,30 @@
+.node:hover,
+.node.hovering {
+    stroke: var(--hover-color);;
+    stroke-width: 1.5px;
+}
+
+.node.selected {
+    stroke: var(--selected-color);;
+    stroke-width: 1.5px;
+}
+
+.node--root {
+    /* stroke: #777;
+    stroke-width: 1px; */
+}
+
+.node--leaf {
+    fill: white;
+    stroke: #777;
+    stroke-width: 0.5px;
+}
+
+.label {
+    text-anchor: middle;
+    font-size: 12px;
+    /* fill: white; */
+    fill: #3A445A;
+    /* text-shadow: 0 1px 0 #fff, 1px 0 0 #fff, -1px 0 0 #fff, 0 -1px 0 #fff; */
+    pointer-events: none;
+}
