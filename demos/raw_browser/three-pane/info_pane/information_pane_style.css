@@ -1,6 +1,5 @@
-
+/* 
 #system-path #prefix-label {
-    /* background-color: rgb(197, 197, 197); */
     color: rgb(117, 117, 117);
     padding: 0px 4px;
     border-radius: 4px;
@@ -14,8 +13,9 @@
 #system-path #prefix-label:hover {
     cursor: pointer;
     color: var(--hover-color);
-}
+} */
 
+#system-path #prefix-label,
 #system-path .system-component-separator,
 #system-path .system-component {
     margin: 0px 2px;
@@ -23,17 +23,20 @@
     color:rgb(83, 83, 83);
 }
 
+#system-path #prefix-label.selectable,
 #system-path .system-component.selectable {
     color: var(--selectable-color);
 }
 
-#system-path .system-component.selected {
-    color: var(--selected-color);
-}
-
+#system-path #prefix-label.selectable:hover,
 #system-path .system-component.selectable:hover {
     cursor: pointer;
     color: var(--hover-color);
+}
+
+#system-path #prefix-label.selected,
+#system-path .system-component.selected {
+    color: var(--selected-color);
 }
 
 #module-children {

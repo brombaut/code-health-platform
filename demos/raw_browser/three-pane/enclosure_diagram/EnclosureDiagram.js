@@ -40,11 +40,11 @@ class EnclosureDiagram {
         this.setSelectedNode(d);
     }
 
-    onNodeHover(d, enter) {
+    onNodeHover(node, enter) {
         if (enter) {
-            new EncNodeMouseEnterEvent(d).dispatch();
+            new EncNodeMouseEnterEvent(node).dispatch();
         } else {
-            new EncNodeMouseLeaveEvent(d).dispatch();
+            new EncNodeMouseLeaveEvent(node).dispatch();
         }
     }
 
@@ -67,11 +67,17 @@ class EnclosureDiagram {
         this.d3R.selectAll(".hovering").nodes().map((el) => {
             el.classList.remove("hovering");
         });
+        if (!node) {
+            node = this.root;
+        }
         const elToSelect = this.findElFromNode(node);
         elToSelect?.classList.add("hovering");
     }
 
     removeHoveringNode(node) {
+        if (!node) {
+            node = this.root;
+        }
         const elToSelect = this.findElFromNode(node);
         elToSelect?.classList.remove("hovering");
     }

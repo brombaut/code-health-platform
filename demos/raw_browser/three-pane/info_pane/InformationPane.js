@@ -48,6 +48,10 @@ class InformationPane {
         el.textContent = "System";
         if (isSelected) {
             el.classList.add("selected");
+        } else {
+            el.classList.add("selectable");
+            el.addEventListener("mouseenter", this.makeInfoNodeMouseEnterCallback(null));
+            el.addEventListener("mouseleave", this.makeInfoNodeMouseLeaveCallback(null));
         }
 
         el.addEventListener("click", this.makeInfoNodeSelectedCallback(null));
@@ -66,6 +70,8 @@ class InformationPane {
         el.classList.add("system-component");
         if (isSelectable) {
             el.classList.add("selectable");
+            el.addEventListener("mouseenter", this.makeInfoNodeMouseEnterCallback(node));
+            el.addEventListener("mouseleave", this.makeInfoNodeMouseLeaveCallback(node));
         } else {
             // if not selectable, it is selected
             el.classList.add("selected");
