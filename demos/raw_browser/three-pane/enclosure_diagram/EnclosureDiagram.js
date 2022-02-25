@@ -49,8 +49,9 @@ class EnclosureDiagram {
             node = this.root;
         }
         this.setSelectedNode(node);
-        // Zoom to node
-        this.zoomer.zoom(node, this);
+        // If not leaf node, zoom to node, else zoom to parent
+        const nodeToZoomTo = node.children || !node.parent ? node : node.parent;
+        this.zoomer.zoom(nodeToZoomTo, this);
     }
 
     onNodeHover(node, enter) {

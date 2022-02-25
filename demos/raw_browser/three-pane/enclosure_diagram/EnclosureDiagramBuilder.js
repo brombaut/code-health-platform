@@ -70,12 +70,7 @@ class EnclosureDiagramBuilder {
             .attr("class", "label")
             .attr("transform", (d) => `translate(${d.x},${d.y})`)
             .style("fill-opacity", (d) => d.parent === root ? 1 : 0)
-            .style("display", (d) => {
-                if (d == root || d.parent == root) {
-                    return null; // If a node is a child of the currently focused node, display it
-                }
-                return "none";
-            })
+            .style("display", (d) => d.parent == root ? "inline" : "none")
             .text((d) => {
                 let result = d.data.name;
                 if (d.children?.length > 0) {
