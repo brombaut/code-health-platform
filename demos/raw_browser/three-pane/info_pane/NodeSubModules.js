@@ -32,19 +32,27 @@ class NodeSubModules {
         const spanEl = document.createElement("span");
         spanEl.setAttribute("id", `node-sub-module-${this.nodeIdMaker.fromNode(node)}`);
         spanEl.classList.add("node-sub-module");
+        const imgEl = document.createElement("img");
+        imgEl.classList.add('icon');
         if (node.children) {
             spanEl.classList.add("directory");
             spanEl.textContent = `${node.data.name}/`;
+            imgEl.src = "assets/images/directory_icon.png";
         } else {
             spanEl.classList.add("file");
             spanEl.textContent = node.data.name;
+            imgEl.src = "assets/images/file_icon.png";
         }
         spanEl.addEventListener("click", this.callbacks.makeSelected(node));
         spanEl.addEventListener("mouseenter", this.callbacks.makeMouseEnter(node));
         spanEl.addEventListener("mouseleave", this.callbacks.makeMouseLeave(node));
 
+        const divEl = document.createElement("div");
+        divEl.classList.add("wrapper");
+        divEl.appendChild(imgEl);
+        divEl.appendChild(spanEl);
         const liEl = document.createElement("li");
-        liEl.appendChild(spanEl);
+        liEl.appendChild(divEl);
         return liEl;
     }
 }
