@@ -39,7 +39,7 @@
     color: var(--selected-color);
 }
 
-#module-children {
+#selected-node-details {
     overflow: auto;
     height: 300px;
 }
@@ -63,4 +63,11 @@
 #module-children li .node-sub-module.file {
     color:cadetblue;
 } */
+
+
+
+#node-file-information td {
+    padding: 4px 8px;
+    font-size: 1.25em;
+}
 
