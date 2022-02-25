@@ -2,20 +2,27 @@
 class EnclosureDiagram {
     constructor(d3, data) {
         this.d3R = d3;
-        this.elementProxy = new ElementProxy(d3)
-        const builder = new EnclosureDiagramBuilder(d3, this.elementProxy);
+        this.elementProxy = new ElementProxy(this.d3R)
+        this.tooltip = new ToolTip(this.d3R, this.elementProxy);
+        const builder = new EnclosureDiagramBuilder(this.d3R, this.elementProxy);
         this.root = builder.makeRoot(data);
         this.svg = builder.makeSvg();
         const callbacks = {
             onClick: (event, d) => this.onNodeClick(d),
-            onMouseEnter: (event, d) => this.onNodeHover(d, true),
-            onMouseLeave: (event, d) => this.onNodeHover(d, false),
+            onMouseEnter: (event, d) => {
+                this.onNodeHover(d, true);
+                this.tooltip.show(d, event.target);
+            },
+            onMouseLeave: (event, d) => {
+                this.onNodeHover(d, false);
+                this.tooltip.hide();
+            },
         }
         this.nodes = builder.makeNodes(this.svg, this.root, callbacks);
         this.labels = builder.makeLabels(this.svg, this.root);
 
         this.focus = this.root;
-        this.zoomer = new Zoomer(d3)
+        this.zoomer = new Zoomer(this.d3R)
         this.zoomer.zoomTo(this.zoomer.makeToZoomTo(this.focus), this);
 
         // Initially set selected node to root
@@ -75,7 +82,10 @@ class EnclosureDiagram {
             node = this.root;
         }
         const elToSelect = this.findElFromNode(node);
-        elToSelect?.classList.add("hovering");
+        if (elToSelect) {
+            elToSelect.classList.add("hovering");
+            this.tooltip.show(node, elToSelect);
+        }
     }
 
     removeHoveringNode(node) {
@@ -83,7 +93,10 @@ class EnclosureDiagram {
             node = this.root;
         }
         const elToSelect = this.findElFromNode(node);
-        elToSelect?.classList.remove("hovering");
+        if (elToSelect) {
+            elToSelect.classList.remove("hovering");
+            this.tooltip.hide();
+        }
     }
 
     findElFromNode(node) {

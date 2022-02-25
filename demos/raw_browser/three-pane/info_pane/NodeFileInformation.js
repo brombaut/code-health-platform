@@ -10,7 +10,7 @@ class NodeFileInformation {
 
     makeNodeFileInformation(node) {
         const attributes = [
-            {   
+            {
                 "key": "code_lines",
                 "label": "Code Lines",
                 "parser": (v) => v,
