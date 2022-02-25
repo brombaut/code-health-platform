@@ -2,8 +2,6 @@ class NodeSubModules {
     constructor() {
         this.callbacks = new InfoNodeCallbacksMaker();
         this.nodeIdMaker = new NodeIdMaker();
-
-
     }
 
     makeEl(node) {
@@ -12,7 +10,7 @@ class NodeSubModules {
 
     makeSelectedNodeSubModules(node) {
         const ulEl = document.createElement("ul");
-        ulEl.setAttribute("id", "module-children");
+        ulEl.setAttribute("id", "module-children-ul");
         if (node.children) {
             node.children.sort((a, b) => {
                 if (a.children && !b.children) return -1;
@@ -25,7 +23,11 @@ class NodeSubModules {
                 ulEl.appendChild(this.selectedNodeSubModuleEl(d));
             });
         }
-        return ulEl
+        const divEl = document.createElement("div");
+        divEl.setAttribute("id", "module-children");
+        divEl.appendChild(ulEl);
+
+        return divEl;
     }
 
     selectedNodeSubModuleEl(node) {

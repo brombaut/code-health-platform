@@ -4,6 +4,7 @@ class InformationPane {
         this.nodeSubModules = new NodeSubModules();
         this.nodeIdMaker = new NodeIdMaker();
         this.nodeFileInformation = new NodeFileInformation();
+        this.nodeDirectoryInformation = new NodeDirectoryInformation();
 
 
         // TODO: Move these to their correct classes
@@ -27,7 +28,13 @@ class InformationPane {
         this.systemPath.set(node);
         let elToShow;
         if (node.children) {
-            elToShow = this.nodeSubModules.makeEl(node);
+            elToShow = document.createElement("div");
+            elToShow.setAttribute("id", "node-directory-information")
+            elToShow.appendChild(this.nodeDirectoryInformation.makeEl(node));
+            const vrEl = document.createElement("div");
+            vrEl.classList.add("vertial-rule");
+            elToShow.appendChild(vrEl);
+            elToShow.appendChild(this.nodeSubModules.makeEl(node));
         } else {
             elToShow = this.nodeFileInformation.makeEl(node);
         }

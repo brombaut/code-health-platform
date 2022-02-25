@@ -30,6 +30,10 @@ main {
     flex-direction: column;
 }
 
+#left-pane {
+    flex: 3;
+}
+
 .flex-1 {
     flex: 1;
 }
@@ -45,6 +49,7 @@ main {
     background-color: rgb(251, 253, 255);
     border-left: 1px solid darkgray;
     padding: 4px 8px;
+    flex: 2;
 }
 
 .right-sub-pane {

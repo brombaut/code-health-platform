@@ -23,21 +23,36 @@
 }
 
 #selected-node-details {
-    overflow: auto;
     height: 300px;
 }
 
+#node-directory-information {
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+}
+
+.vertial-rule {
+    height: 100%;
+    border-left: 2px solid gray;
+}
 
 #module-children {
+    overflow: auto;
+    flex: 1;
+    height: 100%;
+}
+
+#module-children-ul {
     list-style: none;
     padding-left: 8px;
 }
 
-#module-children li {
+#module-children-ul li {
     margin: 4px 0;
 }
 
-#module-children li .wrapper {
+#module-children-ul li .wrapper {
     display: flex;
     flex-direction: row;
 }
@@ -58,12 +73,14 @@
     color: var(--hover-color);
 }
 
-#node-file-information-table td {
+#node-file-information-table td,
+#node-directory-information-table td {
     padding: 4px 8px;
     font-size: 1em;
 }
 
-#node-file-information-table td .label {
+#node-file-information-table td .label,
+#node-directory-information-table td .label {
     font-weight: bold;
 }
 
