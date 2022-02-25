@@ -58,18 +58,12 @@
     color: var(--hover-color);
 }
 
-/* #module-children li .node-sub-module.directory {
-    color:cadetblue;
+#node-file-information-table td {
+    padding: 4px 8px;
+    font-size: 1em;
 }
 
-#module-children li .node-sub-module.file {
-    color:cadetblue;
-} */
-
-
-
-#node-file-information td {
-    padding: 4px 8px;
-    font-size: 1.25em;
+#node-file-information-table td .label {
+    font-weight: bold;
 }
 

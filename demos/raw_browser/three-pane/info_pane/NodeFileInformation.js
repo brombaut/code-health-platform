@@ -36,23 +36,32 @@ class NodeFileInformation {
                 "parser": (v) => v.toFixed(2),
             }
         ]
-        const el = document.createElement("table");
-        el.setAttribute("id", "node-file-information")
+        const tableEl = document.createElement("table");
+        tableEl.setAttribute("id", "node-file-information-table")
         attributes.forEach((a) => {
             a.value = node.data[a.key];
-            el.appendChild(this.makeTableRow(a))
+            tableEl.appendChild(this.makeTableRow(a))
         })
-        return el;
+
+        const headerEl = document.createElement("h3");
+        headerEl.setAttribute("id", "node-file-information-header")
+        headerEl.textContent = "File Metrics"
+        const divEl = document.createElement("div");
+        divEl.appendChild(headerEl);
+        divEl.appendChild(tableEl);
+        return divEl;
     }
 
     makeTableRow(attribute) {
         const labelSpan = document.createElement("span");
         labelSpan.textContent = attribute.label;
+        labelSpan.classList.add("label");
         const labelTd = document.createElement("td");
         labelTd.appendChild(labelSpan);
 
         const valueSpan = document.createElement("span");
         valueSpan.textContent = attribute.parser(attribute.value);
+        valueSpan.classList.add("value");
         const valueTd = document.createElement("td");
         valueTd.appendChild(valueSpan);
 
