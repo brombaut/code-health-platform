@@ -1,6 +1,6 @@
 #!/bin/bash
 
-pyan3  `find . -type f -regex ".*\.py"` --uses --dot --file dependencies.txt
+# pyan3  `find . -type f -regex ".*\.py"` --uses --dot --file dependencies.txt
 
 
 # usage: pyan3 FILENAME... [--dot|--tgf|--yed|--svg|--html]
@@ -32,3 +32,12 @@ pyan3  `find . -type f -regex ".*\.py"` --uses --dot --file dependencies.txt
 #   --dot-rankdir RANKDIR
 #                         specifies the dot graph 'rankdir' property for controlling the direction of the graph. Allowed values: ['TB', 'LR', 'BT', 'RL']. [dot only]
 #   -a, --annotated       annotate with module and source line number
+
+
+
+
+
+java -jar \
+    /home/brombaut/work/java-callgraph/target/javacg-0.1-SNAPSHOT-static.jar \
+    /home/brombaut/work/java-callgraph/target/javacg-0.1-SNAPSHOT-static.jar \
+    > /home/brombaut/work/code-health-notebook/demos/callgraphs/java_callgraph_dependencies.txt
