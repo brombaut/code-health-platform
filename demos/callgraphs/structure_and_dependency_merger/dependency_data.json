@@ -1,0 +1,1267 @@
+{
+    "name": "root",
+    "children": [
+        {
+            "name": "src",
+            "children": [
+                {
+                    "name": "main",
+                    "children": [
+                        {
+                            "name": "java",
+                            "children": [
+                                {
+                                    "name": "gr",
+                                    "children": [
+                                        {
+                                            "name": "gousiosg",
+                                            "children": [
+                                                {
+                                                    "name": "javacg",
+                                                    "children": [
+                                                        {
+                                                            "name": "stat",
+                                                            "children": [
+                                                                {
+                                                                    "name": "JCallGraph",
+                                                                    "children": [
+                                                                        {
+                                                                            "name": "$dependencies",
+                                                                            "children": [
+                                                                                {
+                                                                                    "name": "root",
+                                                                                    "children": [
+                                                                                        {
+                                                                                            "name": "src",
+                                                                                            "children": [
+                                                                                                {
+                                                                                                    "name": "main",
+                                                                                                    "children": [
+                                                                                                        {
+                                                                                                            "name": "java",
+                                                                                                            "children": [
+                                                                                                                {
+                                                                                                                    "name": "gr",
+                                                                                                                    "children": [
+                                                                                                                        {
+                                                                                                                            "name": "gousiosg",
+                                                                                                                            "children": [
+                                                                                                                                {
+                                                                                                                                    "name": "javacg",
+                                                                                                                                    "children": [
+                                                                                                                                        {
+                                                                                                                                            "name": "stat",
+                                                                                                                                            "children": [
+                                                                                                                                                {
+                                                                                                                                                    "name": "JCallGraph",
+                                                                                                                                                    "children": []
+                                                                                                                                                },
+                                                                                                                                                {
+                                                                                                                                                    "name": "ClassVisitor",
+                                                                                                                                                    "children": []
+                                                                                                                                                }
+                                                                                                                                            ]
+                                                                                                                                        }
+                                                                                                                                    ]
+                                                                                                                                }
+                                                                                                                            ]
+                                                                                                                        }
+                                                                                                                    ]
+                                                                                                                }
+                                                                                                            ]
+                                                                                                        }
+                                                                                                    ]
+                                                                                                }
+                                                                                            ]
+                                                                                        }
+                                                                                    ]
+                                                                                },
+                                                                                {
+                                                                                    "name": "java",
+                                                                                    "children": [
+                                                                                        {
+                                                                                            "name": "lang",
+                                                                                            "children": [
+                                                                                                {
+                                                                                                    "name": "Object",
+                                                                                                    "children": []
+                                                                                                },
+                                                                                                {
+                                                                                                    "name": "StringBuilder",
+                                                                                                    "children": []
+                                                                                                },
+                                                                                                {
+                                                                                                    "name": "Throwable",
+                                                                                                    "children": []
+                                                                                                },
+                                                                                                {
+                                                                                                    "name": "String",
+                                                                                                    "children": []
+                                                                                                },
+                                                                                                {
+                                                                                                    "name": "System",
+                                                                                                    "children": []
+                                                                                                },
+                                                                                                {
+                                                                                                    "name": "invoke",
+                                                                                                    "children": [
+                                                                                                        {
+                                                                                                            "name": "LambdaMetafactory",
+                                                                                                            "children": []
+                                                                                                        },
+                                                                                                        {
+                                                                                                            "name": "MethodHandles",
+                                                                                                            "children": []
+                                                                                                        }
+                                                                                                    ]
+                                                                                                }
+                                                                                            ]
+                                                                                        },
+                                                                                        {
+                                                                                            "name": "util",
+                                                                                            "children": [
+                                                                                                {
+                                                                                                    "name": "Iterator",
+                                                                                                    "children": []
+                                                                                                },
+                                                                                                {
+                                                                                                    "name": "Enumeration",
+                                                                                                    "children": []
+                                                                                                },
+                                                                                                {
+                                                                                                    "name": "jar",
+                                                                                                    "children": [
+                                                                                                        {
+                                                                                                            "name": "JarFile",
+                                                                                                            "children": []
+                                                                                                        },
+                                                                                                        {
+                                                                                                            "name": "JarEntry",
+                                                                                                            "children": []
+                                                                                                        }
+                                                                                                    ]
+                                                                                                },
+                                                                                                {
+                                                                                                    "name": "Spliterator",
+                                                                                                    "children": []
+                                                                                                },
+                                                                                                {
+                                                                                                    "name": "ArrayList",
+                                                                                                    "children": []
+                                                                                                },
+                                                                                                {
+                                                                                                    "name": "function",
+                                                                                                    "children": [
+                                                                                                        {
+                                                                                                            "name": "Function",
+                                                                                                            "children": []
+                                                                                                        }
+                                                                                                    ]
+                                                                                                },
+                                                                                                {
+                                                                                                    "name": "stream",
+                                                                                                    "children": [
+                                                                                                        {
+                                                                                                            "name": "Stream",
+                                                                                                            "children": []
+                                                                                                        },
+                                                                                                        {
+                                                                                                            "name": "StreamSupport",
+                                                                                                            "children": []
+                                                                                                        }
+                                                                                                    ]
+                                                                                                },
+                                                                                                {
+                                                                                                    "name": "Spliterators",
+                                                                                                    "children": []
+                                                                                                },
+                                                                                                {
+                                                                                                    "name": "List",
+                                                                                                    "children": []
+                                                                                                }
+                                                                                            ]
+                                                                                        },
+                                                                                        {
+                                                                                            "name": "io",
+                                                                                            "children": [
+                                                                                                {
+                                                                                                    "name": "File",
+                                                                                                    "children": []
+                                                                                                },
+                                                                                                {
+                                                                                                    "name": "BufferedWriter",
+                                                                                                    "children": []
+                                                                                                },
+                                                                                                {
+                                                                                                    "name": "OutputStreamWriter",
+                                                                                                    "children": []
+                                                                                                },
+                                                                                                {
+                                                                                                    "name": "IOException",
+                                                                                                    "children": []
+                                                                                                },
+                                                                                                {
+                                                                                                    "name": "UncheckedIOException",
+                                                                                                    "children": []
+                                                                                                },
+                                                                                                {
+                                                                                                    "name": "PrintStream",
+                                                                                                    "children": []
+                                                                                                }
+                                                                                            ]
+                                                                                        }
+                                                                                    ]
+                                                                                },
+                                                                                {
+                                                                                    "name": "org",
+                                                                                    "children": [
+                                                                                        {
+                                                                                            "name": "apache",
+                                                                                            "children": [
+                                                                                                {
+                                                                                                    "name": "bcel",
+                                                                                                    "children": [
+                                                                                                        {
+                                                                                                            "name": "classfile",
+                                                                                                            "children": [
+                                                                                                                {
+                                                                                                                    "name": "ClassParser",
+                                                                                                                    "children": []
+                                                                                                                }
+                                                                                                            ]
+                                                                                                        }
+                                                                                                    ]
+                                                                                                }
+                                                                                            ]
+                                                                                        }
+                                                                                    ]
+                                                                                },
+                                                                                {
+                                                                                    "name": "[Ljava",
+                                                                                    "children": [
+                                                                                        {
+                                                                                            "name": "lang",
+                                                                                            "children": [
+                                                                                                {
+                                                                                                    "name": "String;",
+                                                                                                    "children": []
+                                                                                                }
+                                                                                            ]
+                                                                                        }
+                                                                                    ]
+                                                                                }
+                                                                            ]
+                                                                        }
+                                                                    ]
+                                                                },
+                                                                {
+                                                                    "name": "DynamicCallManager",
+                                                                    "children": [
+                                                                        {
+                                                                            "name": "$dependencies",
+                                                                            "children": [
+                                                                                {
+                                                                                    "name": "java",
+                                                                                    "children": [
+                                                                                        {
+                                                                                            "name": "util",
+                                                                                            "children": [
+                                                                                                {
+                                                                                                    "name": "HashMap",
+                                                                                                    "children": []
+                                                                                                },
+                                                                                                {
+                                                                                                    "name": "regex",
+                                                                                                    "children": [
+                                                                                                        {
+                                                                                                            "name": "Matcher",
+                                                                                                            "children": []
+                                                                                                        },
+                                                                                                        {
+                                                                                                            "name": "Pattern",
+                                                                                                            "children": []
+                                                                                                        }
+                                                                                                    ]
+                                                                                                },
+                                                                                                {
+                                                                                                    "name": "Map",
+                                                                                                    "children": []
+                                                                                                }
+                                                                                            ]
+                                                                                        },
+                                                                                        {
+                                                                                            "name": "lang",
+                                                                                            "children": [
+                                                                                                {
+                                                                                                    "name": "String",
+                                                                                                    "children": []
+                                                                                                },
+                                                                                                {
+                                                                                                    "name": "Object",
+                                                                                                    "children": []
+                                                                                                },
+                                                                                                {
+                                                                                                    "name": "Integer",
+                                                                                                    "children": []
+                                                                                                }
+                                                                                            ]
+                                                                                        }
+                                                                                    ]
+                                                                                },
+                                                                                {
+                                                                                    "name": "root",
+                                                                                    "children": [
+                                                                                        {
+                                                                                            "name": "src",
+                                                                                            "children": [
+                                                                                                {
+                                                                                                    "name": "main",
+                                                                                                    "children": [
+                                                                                                        {
+                                                                                                            "name": "java",
+                                                                                                            "children": [
+                                                                                                                {
+                                                                                                                    "name": "gr",
+                                                                                                                    "children": [
+                                                                                                                        {
+                                                                                                                            "name": "gousiosg",
+                                                                                                                            "children": [
+                                                                                                                                {
+                                                                                                                                    "name": "javacg",
+                                                                                                                                    "children": [
+                                                                                                                                        {
+                                                                                                                                            "name": "stat",
+                                                                                                                                            "children": [
+                                                                                                                                                {
+                                                                                                                                                    "name": "DynamicCallManager",
+                                                                                                                                                    "children": []
+                                                                                                                                                }
+                                                                                                                                            ]
+                                                                                                                                        }
+                                                                                                                                    ]
+                                                                                                                                }
+                                                                                                                            ]
+                                                                                                                        }
+                                                                                                                    ]
+                                                                                                                }
+                                                                                                            ]
+                                                                                                        }
+                                                                                                    ]
+                                                                                                }
+                                                                                            ]
+                                                                                        }
+                                                                                    ]
+                                                                                },
+                                                                                {
+                                                                                    "name": "org",
+                                                                                    "children": [
+                                                                                        {
+                                                                                            "name": "apache",
+                                                                                            "children": [
+                                                                                                {
+                                                                                                    "name": "bcel",
+                                                                                                    "children": [
+                                                                                                        {
+                                                                                                            "name": "classfile",
+                                                                                                            "children": [
+                                                                                                                {
+                                                                                                                    "name": "ConstantMethodHandle",
+                                                                                                                    "children": []
+                                                                                                                },
+                                                                                                                {
+                                                                                                                    "name": "ConstantCP",
+                                                                                                                    "children": []
+                                                                                                                },
+                                                                                                                {
+                                                                                                                    "name": "ConstantNameAndType",
+                                                                                                                    "children": []
+                                                                                                                },
+                                                                                                                {
+                                                                                                                    "name": "ConstantUtf8",
+                                                                                                                    "children": []
+                                                                                                                },
+                                                                                                                {
+                                                                                                                    "name": "BootstrapMethods",
+                                                                                                                    "children": []
+                                                                                                                },
+                                                                                                                {
+                                                                                                                    "name": "BootstrapMethod",
+                                                                                                                    "children": []
+                                                                                                                },
+                                                                                                                {
+                                                                                                                    "name": "Method",
+                                                                                                                    "children": []
+                                                                                                                },
+                                                                                                                {
+                                                                                                                    "name": "JavaClass",
+                                                                                                                    "children": []
+                                                                                                                },
+                                                                                                                {
+                                                                                                                    "name": "ConstantPool",
+                                                                                                                    "children": []
+                                                                                                                },
+                                                                                                                {
+                                                                                                                    "name": "Code",
+                                                                                                                    "children": []
+                                                                                                                }
+                                                                                                            ]
+                                                                                                        }
+                                                                                                    ]
+                                                                                                }
+                                                                                            ]
+                                                                                        }
+                                                                                    ]
+                                                                                },
+                                                                                {
+                                                                                    "name": "[Lorg",
+                                                                                    "children": [
+                                                                                        {
+                                                                                            "name": "apache",
+                                                                                            "children": [
+                                                                                                {
+                                                                                                    "name": "bcel",
+                                                                                                    "children": [
+                                                                                                        {
+                                                                                                            "name": "classfile",
+                                                                                                            "children": [
+                                                                                                                {
+                                                                                                                    "name": "BootstrapMethod;",
+                                                                                                                    "children": []
+                                                                                                                },
+                                                                                                                {
+                                                                                                                    "name": "Attribute;",
+                                                                                                                    "children": []
+                                                                                                                }
+                                                                                                            ]
+                                                                                                        }
+                                                                                                    ]
+                                                                                                }
+                                                                                            ]
+                                                                                        }
+                                                                                    ]
+                                                                                }
+                                                                            ]
+                                                                        }
+                                                                    ]
+                                                                },
+                                                                {
+                                                                    "name": "MethodVisitor",
+                                                                    "children": [
+                                                                        {
+                                                                            "name": "$dependencies",
+                                                                            "children": [
+                                                                                {
+                                                                                    "name": "java",
+                                                                                    "children": [
+                                                                                        {
+                                                                                            "name": "util",
+                                                                                            "children": [
+                                                                                                {
+                                                                                                    "name": "ArrayList",
+                                                                                                    "children": []
+                                                                                                },
+                                                                                                {
+                                                                                                    "name": "Collections",
+                                                                                                    "children": []
+                                                                                                },
+                                                                                                {
+                                                                                                    "name": "List",
+                                                                                                    "children": []
+                                                                                                }
+                                                                                            ]
+                                                                                        },
+                                                                                        {
+                                                                                            "name": "lang",
+                                                                                            "children": [
+                                                                                                {
+                                                                                                    "name": "StringBuilder",
+                                                                                                    "children": []
+                                                                                                },
+                                                                                                {
+                                                                                                    "name": "Object",
+                                                                                                    "children": []
+                                                                                                },
+                                                                                                {
+                                                                                                    "name": "String",
+                                                                                                    "children": []
+                                                                                                }
+                                                                                            ]
+                                                                                        }
+                                                                                    ]
+                                                                                },
+                                                                                {
+                                                                                    "name": "org",
+                                                                                    "children": [
+                                                                                        {
+                                                                                            "name": "apache",
+                                                                                            "children": [
+                                                                                                {
+                                                                                                    "name": "bcel",
+                                                                                                    "children": [
+                                                                                                        {
+                                                                                                            "name": "generic",
+                                                                                                            "children": [
+                                                                                                                {
+                                                                                                                    "name": "ConstantPushInstruction",
+                                                                                                                    "children": []
+                                                                                                                },
+                                                                                                                {
+                                                                                                                    "name": "ReturnInstruction",
+                                                                                                                    "children": []
+                                                                                                                },
+                                                                                                                {
+                                                                                                                    "name": "EmptyVisitor",
+                                                                                                                    "children": []
+                                                                                                                },
+                                                                                                                {
+                                                                                                                    "name": "InstructionHandle",
+                                                                                                                    "children": []
+                                                                                                                },
+                                                                                                                {
+                                                                                                                    "name": "MethodGen",
+                                                                                                                    "children": []
+                                                                                                                },
+                                                                                                                {
+                                                                                                                    "name": "Type",
+                                                                                                                    "children": []
+                                                                                                                },
+                                                                                                                {
+                                                                                                                    "name": "InstructionList",
+                                                                                                                    "children": []
+                                                                                                                },
+                                                                                                                {
+                                                                                                                    "name": "Instruction",
+                                                                                                                    "children": []
+                                                                                                                },
+                                                                                                                {
+                                                                                                                    "name": "InstructionConst",
+                                                                                                                    "children": []
+                                                                                                                },
+                                                                                                                {
+                                                                                                                    "name": "INVOKEVIRTUAL",
+                                                                                                                    "children": []
+                                                                                                                },
+                                                                                                                {
+                                                                                                                    "name": "INVOKEINTERFACE",
+                                                                                                                    "children": []
+                                                                                                                },
+                                                                                                                {
+                                                                                                                    "name": "INVOKESPECIAL",
+                                                                                                                    "children": []
+                                                                                                                },
+                                                                                                                {
+                                                                                                                    "name": "INVOKESTATIC",
+                                                                                                                    "children": []
+                                                                                                                },
+                                                                                                                {
+                                                                                                                    "name": "INVOKEDYNAMIC",
+                                                                                                                    "children": []
+                                                                                                                }
+                                                                                                            ]
+                                                                                                        },
+                                                                                                        {
+                                                                                                            "name": "classfile",
+                                                                                                            "children": [
+                                                                                                                {
+                                                                                                                    "name": "JavaClass",
+                                                                                                                    "children": []
+                                                                                                                }
+                                                                                                            ]
+                                                                                                        }
+                                                                                                    ]
+                                                                                                }
+                                                                                            ]
+                                                                                        }
+                                                                                    ]
+                                                                                },
+                                                                                {
+                                                                                    "name": "root",
+                                                                                    "children": [
+                                                                                        {
+                                                                                            "name": "src",
+                                                                                            "children": [
+                                                                                                {
+                                                                                                    "name": "main",
+                                                                                                    "children": [
+                                                                                                        {
+                                                                                                            "name": "java",
+                                                                                                            "children": [
+                                                                                                                {
+                                                                                                                    "name": "gr",
+                                                                                                                    "children": [
+                                                                                                                        {
+                                                                                                                            "name": "gousiosg",
+                                                                                                                            "children": [
+                                                                                                                                {
+                                                                                                                                    "name": "javacg",
+                                                                                                                                    "children": [
+                                                                                                                                        {
+                                                                                                                                            "name": "stat",
+                                                                                                                                            "children": [
+                                                                                                                                                {
+                                                                                                                                                    "name": "MethodVisitor",
+                                                                                                                                                    "children": []
+                                                                                                                                                }
+                                                                                                                                            ]
+                                                                                                                                        }
+                                                                                                                                    ]
+                                                                                                                                }
+                                                                                                                            ]
+                                                                                                                        }
+                                                                                                                    ]
+                                                                                                                }
+                                                                                                            ]
+                                                                                                        }
+                                                                                                    ]
+                                                                                                }
+                                                                                            ]
+                                                                                        }
+                                                                                    ]
+                                                                                }
+                                                                            ]
+                                                                        }
+                                                                    ]
+                                                                },
+                                                                {
+                                                                    "name": "ClassVisitor",
+                                                                    "children": [
+                                                                        {
+                                                                            "name": "$dependencies",
+                                                                            "children": [
+                                                                                {
+                                                                                    "name": "root",
+                                                                                    "children": [
+                                                                                        {
+                                                                                            "name": "src",
+                                                                                            "children": [
+                                                                                                {
+                                                                                                    "name": "main",
+                                                                                                    "children": [
+                                                                                                        {
+                                                                                                            "name": "java",
+                                                                                                            "children": [
+                                                                                                                {
+                                                                                                                    "name": "gr",
+                                                                                                                    "children": [
+                                                                                                                        {
+                                                                                                                            "name": "gousiosg",
+                                                                                                                            "children": [
+                                                                                                                                {
+                                                                                                                                    "name": "javacg",
+                                                                                                                                    "children": [
+                                                                                                                                        {
+                                                                                                                                            "name": "stat",
+                                                                                                                                            "children": [
+                                                                                                                                                {
+                                                                                                                                                    "name": "DynamicCallManager",
+                                                                                                                                                    "children": []
+                                                                                                                                                },
+                                                                                                                                                {
+                                                                                                                                                    "name": "MethodVisitor",
+                                                                                                                                                    "children": []
+                                                                                                                                                },
+                                                                                                                                                {
+                                                                                                                                                    "name": "ClassVisitor",
+                                                                                                                                                    "children": []
+                                                                                                                                                }
+                                                                                                                                            ]
+                                                                                                                                        }
+                                                                                                                                    ]
+                                                                                                                                }
+                                                                                                                            ]
+                                                                                                                        }
+                                                                                                                    ]
+                                                                                                                }
+                                                                                                            ]
+                                                                                                        }
+                                                                                                    ]
+                                                                                                }
+                                                                                            ]
+                                                                                        }
+                                                                                    ]
+                                                                                },
+                                                                                {
+                                                                                    "name": "java",
+                                                                                    "children": [
+                                                                                        {
+                                                                                            "name": "util",
+                                                                                            "children": [
+                                                                                                {
+                                                                                                    "name": "ArrayList",
+                                                                                                    "children": []
+                                                                                                },
+                                                                                                {
+                                                                                                    "name": "List",
+                                                                                                    "children": []
+                                                                                                }
+                                                                                            ]
+                                                                                        },
+                                                                                        {
+                                                                                            "name": "lang",
+                                                                                            "children": [
+                                                                                                {
+                                                                                                    "name": "StringBuilder",
+                                                                                                    "children": []
+                                                                                                },
+                                                                                                {
+                                                                                                    "name": "Object",
+                                                                                                    "children": []
+                                                                                                },
+                                                                                                {
+                                                                                                    "name": "System",
+                                                                                                    "children": []
+                                                                                                },
+                                                                                                {
+                                                                                                    "name": "String",
+                                                                                                    "children": []
+                                                                                                }
+                                                                                            ]
+                                                                                        },
+                                                                                        {
+                                                                                            "name": "io",
+                                                                                            "children": [
+                                                                                                {
+                                                                                                    "name": "PrintStream",
+                                                                                                    "children": []
+                                                                                                }
+                                                                                            ]
+                                                                                        }
+                                                                                    ]
+                                                                                },
+                                                                                {
+                                                                                    "name": "org",
+                                                                                    "children": [
+                                                                                        {
+                                                                                            "name": "apache",
+                                                                                            "children": [
+                                                                                                {
+                                                                                                    "name": "bcel",
+                                                                                                    "children": [
+                                                                                                        {
+                                                                                                            "name": "generic",
+                                                                                                            "children": [
+                                                                                                                {
+                                                                                                                    "name": "ConstantPoolGen",
+                                                                                                                    "children": []
+                                                                                                                },
+                                                                                                                {
+                                                                                                                    "name": "MethodGen",
+                                                                                                                    "children": []
+                                                                                                                }
+                                                                                                            ]
+                                                                                                        },
+                                                                                                        {
+                                                                                                            "name": "classfile",
+                                                                                                            "children": [
+                                                                                                                {
+                                                                                                                    "name": "EmptyVisitor",
+                                                                                                                    "children": []
+                                                                                                                },
+                                                                                                                {
+                                                                                                                    "name": "Constant",
+                                                                                                                    "children": []
+                                                                                                                },
+                                                                                                                {
+                                                                                                                    "name": "JavaClass",
+                                                                                                                    "children": []
+                                                                                                                },
+                                                                                                                {
+                                                                                                                    "name": "ConstantPool",
+                                                                                                                    "children": []
+                                                                                                                },
+                                                                                                                {
+                                                                                                                    "name": "Method",
+                                                                                                                    "children": []
+                                                                                                                }
+                                                                                                            ]
+                                                                                                        }
+                                                                                                    ]
+                                                                                                }
+                                                                                            ]
+                                                                                        }
+                                                                                    ]
+                                                                                },
+                                                                                {
+                                                                                    "name": "[Lorg",
+                                                                                    "children": [
+                                                                                        {
+                                                                                            "name": "apache",
+                                                                                            "children": [
+                                                                                                {
+                                                                                                    "name": "bcel",
+                                                                                                    "children": [
+                                                                                                        {
+                                                                                                            "name": "classfile",
+                                                                                                            "children": [
+                                                                                                                {
+                                                                                                                    "name": "Method;",
+                                                                                                                    "children": []
+                                                                                                                }
+                                                                                                            ]
+                                                                                                        }
+                                                                                                    ]
+                                                                                                }
+                                                                                            ]
+                                                                                        }
+                                                                                    ]
+                                                                                }
+                                                                            ]
+                                                                        }
+                                                                    ]
+                                                                }
+                                                            ]
+                                                        },
+                                                        {
+                                                            "name": "dyn",
+                                                            "children": [
+                                                                {
+                                                                    "name": "Pair",
+                                                                    "children": [
+                                                                        {
+                                                                            "name": "$dependencies",
+                                                                            "children": [
+                                                                                {
+                                                                                    "name": "java",
+                                                                                    "children": [
+                                                                                        {
+                                                                                            "name": "lang",
+                                                                                            "children": [
+                                                                                                {
+                                                                                                    "name": "StringBuffer",
+                                                                                                    "children": []
+                                                                                                },
+                                                                                                {
+                                                                                                    "name": "Object",
+                                                                                                    "children": []
+                                                                                                }
+                                                                                            ]
+                                                                                        }
+                                                                                    ]
+                                                                                },
+                                                                                {
+                                                                                    "name": "root",
+                                                                                    "children": [
+                                                                                        {
+                                                                                            "name": "src",
+                                                                                            "children": [
+                                                                                                {
+                                                                                                    "name": "main",
+                                                                                                    "children": [
+                                                                                                        {
+                                                                                                            "name": "java",
+                                                                                                            "children": [
+                                                                                                                {
+                                                                                                                    "name": "gr",
+                                                                                                                    "children": [
+                                                                                                                        {
+                                                                                                                            "name": "gousiosg",
+                                                                                                                            "children": [
+                                                                                                                                {
+                                                                                                                                    "name": "javacg",
+                                                                                                                                    "children": [
+                                                                                                                                        {
+                                                                                                                                            "name": "dyn",
+                                                                                                                                            "children": [
+                                                                                                                                                {
+                                                                                                                                                    "name": "Pair",
+                                                                                                                                                    "children": []
+                                                                                                                                                }
+                                                                                                                                            ]
+                                                                                                                                        }
+                                                                                                                                    ]
+                                                                                                                                }
+                                                                                                                            ]
+                                                                                                                        }
+                                                                                                                    ]
+                                                                                                                }
+                                                                                                            ]
+                                                                                                        }
+                                                                                                    ]
+                                                                                                }
+                                                                                            ]
+                                                                                        }
+                                                                                    ]
+                                                                                }
+                                                                            ]
+                                                                        }
+                                                                    ]
+                                                                },
+                                                                {
+                                                                    "name": "Instrumenter",
+                                                                    "children": [
+                                                                        {
+                                                                            "name": "$dependencies",
+                                                                            "children": [
+                                                                                {
+                                                                                    "name": "java",
+                                                                                    "children": [
+                                                                                        {
+                                                                                            "name": "lang",
+                                                                                            "children": [
+                                                                                                {
+                                                                                                    "name": "StringBuilder",
+                                                                                                    "children": []
+                                                                                                },
+                                                                                                {
+                                                                                                    "name": "Object",
+                                                                                                    "children": []
+                                                                                                },
+                                                                                                {
+                                                                                                    "name": "instrument",
+                                                                                                    "children": [
+                                                                                                        {
+                                                                                                            "name": "ClassFileTransformer",
+                                                                                                            "children": []
+                                                                                                        },
+                                                                                                        {
+                                                                                                            "name": "Instrumentation",
+                                                                                                            "children": []
+                                                                                                        }
+                                                                                                    ]
+                                                                                                },
+                                                                                                {
+                                                                                                    "name": "String",
+                                                                                                    "children": []
+                                                                                                },
+                                                                                                {
+                                                                                                    "name": "Throwable",
+                                                                                                    "children": []
+                                                                                                }
+                                                                                            ]
+                                                                                        },
+                                                                                        {
+                                                                                            "name": "util",
+                                                                                            "children": [
+                                                                                                {
+                                                                                                    "name": "regex",
+                                                                                                    "children": [
+                                                                                                        {
+                                                                                                            "name": "PatternSyntaxException",
+                                                                                                            "children": []
+                                                                                                        },
+                                                                                                        {
+                                                                                                            "name": "Pattern",
+                                                                                                            "children": []
+                                                                                                        },
+                                                                                                        {
+                                                                                                            "name": "Matcher",
+                                                                                                            "children": []
+                                                                                                        }
+                                                                                                    ]
+                                                                                                },
+                                                                                                {
+                                                                                                    "name": "ArrayList",
+                                                                                                    "children": []
+                                                                                                },
+                                                                                                {
+                                                                                                    "name": "Iterator",
+                                                                                                    "children": []
+                                                                                                },
+                                                                                                {
+                                                                                                    "name": "List",
+                                                                                                    "children": []
+                                                                                                }
+                                                                                            ]
+                                                                                        },
+                                                                                        {
+                                                                                            "name": "io",
+                                                                                            "children": [
+                                                                                                {
+                                                                                                    "name": "ByteArrayInputStream",
+                                                                                                    "children": []
+                                                                                                },
+                                                                                                {
+                                                                                                    "name": "IOException",
+                                                                                                    "children": []
+                                                                                                }
+                                                                                            ]
+                                                                                        }
+                                                                                    ]
+                                                                                },
+                                                                                {
+                                                                                    "name": "root",
+                                                                                    "children": [
+                                                                                        {
+                                                                                            "name": "src",
+                                                                                            "children": [
+                                                                                                {
+                                                                                                    "name": "main",
+                                                                                                    "children": [
+                                                                                                        {
+                                                                                                            "name": "java",
+                                                                                                            "children": [
+                                                                                                                {
+                                                                                                                    "name": "gr",
+                                                                                                                    "children": [
+                                                                                                                        {
+                                                                                                                            "name": "gousiosg",
+                                                                                                                            "children": [
+                                                                                                                                {
+                                                                                                                                    "name": "javacg",
+                                                                                                                                    "children": [
+                                                                                                                                        {
+                                                                                                                                            "name": "dyn",
+                                                                                                                                            "children": [
+                                                                                                                                                {
+                                                                                                                                                    "name": "Instrumenter",
+                                                                                                                                                    "children": []
+                                                                                                                                                }
+                                                                                                                                            ]
+                                                                                                                                        }
+                                                                                                                                    ]
+                                                                                                                                }
+                                                                                                                            ]
+                                                                                                                        }
+                                                                                                                    ]
+                                                                                                                }
+                                                                                                            ]
+                                                                                                        }
+                                                                                                    ]
+                                                                                                }
+                                                                                            ]
+                                                                                        }
+                                                                                    ]
+                                                                                },
+                                                                                {
+                                                                                    "name": "javassist",
+                                                                                    "children": [
+                                                                                        {
+                                                                                            "name": "CannotCompileException",
+                                                                                            "children": []
+                                                                                        },
+                                                                                        {
+                                                                                            "name": "NotFoundException",
+                                                                                            "children": []
+                                                                                        },
+                                                                                        {
+                                                                                            "name": "ClassPool",
+                                                                                            "children": []
+                                                                                        },
+                                                                                        {
+                                                                                            "name": "CtClass",
+                                                                                            "children": []
+                                                                                        },
+                                                                                        {
+                                                                                            "name": "CtBehavior",
+                                                                                            "children": []
+                                                                                        }
+                                                                                    ]
+                                                                                },
+                                                                                {
+                                                                                    "name": "[Ljava",
+                                                                                    "children": [
+                                                                                        {
+                                                                                            "name": "lang",
+                                                                                            "children": [
+                                                                                                {
+                                                                                                    "name": "String;",
+                                                                                                    "children": []
+                                                                                                }
+                                                                                            ]
+                                                                                        }
+                                                                                    ]
+                                                                                },
+                                                                                {
+                                                                                    "name": "[B",
+                                                                                    "children": []
+                                                                                },
+                                                                                {
+                                                                                    "name": "[Ljavassist",
+                                                                                    "children": [
+                                                                                        {
+                                                                                            "name": "CtBehavior;",
+                                                                                            "children": []
+                                                                                        }
+                                                                                    ]
+                                                                                }
+                                                                            ]
+                                                                        }
+                                                                    ]
+                                                                },
+                                                                {
+                                                                    "name": "MethodStack",
+                                                                    "children": [
+                                                                        {
+                                                                            "name": "$dependencies",
+                                                                            "children": [
+                                                                                {
+                                                                                    "name": "root",
+                                                                                    "children": [
+                                                                                        {
+                                                                                            "name": "src",
+                                                                                            "children": [
+                                                                                                {
+                                                                                                    "name": "main",
+                                                                                                    "children": [
+                                                                                                        {
+                                                                                                            "name": "java",
+                                                                                                            "children": [
+                                                                                                                {
+                                                                                                                    "name": "gr",
+                                                                                                                    "children": [
+                                                                                                                        {
+                                                                                                                            "name": "gousiosg",
+                                                                                                                            "children": [
+                                                                                                                                {
+                                                                                                                                    "name": "javacg",
+                                                                                                                                    "children": [
+                                                                                                                                        {
+                                                                                                                                            "name": "dyn",
+                                                                                                                                            "children": [
+                                                                                                                                                {
+                                                                                                                                                    "name": "Pair",
+                                                                                                                                                    "children": []
+                                                                                                                                                },
+                                                                                                                                                {
+                                                                                                                                                    "name": "MethodStack",
+                                                                                                                                                    "children": []
+                                                                                                                                                }
+                                                                                                                                            ]
+                                                                                                                                        }
+                                                                                                                                    ]
+                                                                                                                                }
+                                                                                                                            ]
+                                                                                                                        }
+                                                                                                                    ]
+                                                                                                                }
+                                                                                                            ]
+                                                                                                        }
+                                                                                                    ]
+                                                                                                }
+                                                                                            ]
+                                                                                        }
+                                                                                    ]
+                                                                                },
+                                                                                {
+                                                                                    "name": "java",
+                                                                                    "children": [
+                                                                                        {
+                                                                                            "name": "lang",
+                                                                                            "children": [
+                                                                                                {
+                                                                                                    "name": "String",
+                                                                                                    "children": []
+                                                                                                },
+                                                                                                {
+                                                                                                    "name": "Integer",
+                                                                                                    "children": []
+                                                                                                },
+                                                                                                {
+                                                                                                    "name": "Exception",
+                                                                                                    "children": []
+                                                                                                },
+                                                                                                {
+                                                                                                    "name": "StringBuffer",
+                                                                                                    "children": []
+                                                                                                },
+                                                                                                {
+                                                                                                    "name": "Object",
+                                                                                                    "children": []
+                                                                                                },
+                                                                                                {
+                                                                                                    "name": "Thread",
+                                                                                                    "children": []
+                                                                                                },
+                                                                                                {
+                                                                                                    "name": "System",
+                                                                                                    "children": []
+                                                                                                },
+                                                                                                {
+                                                                                                    "name": "Runtime",
+                                                                                                    "children": []
+                                                                                                },
+                                                                                                {
+                                                                                                    "name": "StringBuilder",
+                                                                                                    "children": []
+                                                                                                },
+                                                                                                {
+                                                                                                    "name": "invoke",
+                                                                                                    "children": [
+                                                                                                        {
+                                                                                                            "name": "LambdaMetafactory",
+                                                                                                            "children": []
+                                                                                                        },
+                                                                                                        {
+                                                                                                            "name": "MethodHandles",
+                                                                                                            "children": []
+                                                                                                        }
+                                                                                                    ]
+                                                                                                }
+                                                                                            ]
+                                                                                        },
+                                                                                        {
+                                                                                            "name": "util",
+                                                                                            "children": [
+                                                                                                {
+                                                                                                    "name": "Stack",
+                                                                                                    "children": []
+                                                                                                },
+                                                                                                {
+                                                                                                    "name": "HashMap",
+                                                                                                    "children": []
+                                                                                                },
+                                                                                                {
+                                                                                                    "name": "Map",
+                                                                                                    "children": []
+                                                                                                },
+                                                                                                {
+                                                                                                    "name": "ArrayList",
+                                                                                                    "children": []
+                                                                                                },
+                                                                                                {
+                                                                                                    "name": "List",
+                                                                                                    "children": []
+                                                                                                },
+                                                                                                {
+                                                                                                    "name": "Iterator",
+                                                                                                    "children": []
+                                                                                                },
+                                                                                                {
+                                                                                                    "name": "Collections",
+                                                                                                    "children": []
+                                                                                                }
+                                                                                            ]
+                                                                                        },
+                                                                                        {
+                                                                                            "name": "io",
+                                                                                            "children": [
+                                                                                                {
+                                                                                                    "name": "File",
+                                                                                                    "children": []
+                                                                                                },
+                                                                                                {
+                                                                                                    "name": "FileWriter",
+                                                                                                    "children": []
+                                                                                                },
+                                                                                                {
+                                                                                                    "name": "IOException",
+                                                                                                    "children": []
+                                                                                                },
+                                                                                                {
+                                                                                                    "name": "PrintStream",
+                                                                                                    "children": []
+                                                                                                }
+                                                                                            ]
+                                                                                        }
+                                                                                    ]
+                                                                                }
+                                                                            ]
+                                                                        }
+                                                                    ]
+                                                                }
+                                                            ]
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
