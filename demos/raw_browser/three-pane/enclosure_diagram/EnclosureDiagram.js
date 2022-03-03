@@ -2,7 +2,7 @@
 class EnclosureDiagram {
     constructor(d3, data) {
         this.d3R = d3;
-        this.elementProxy = new ElementProxy(this.d3R)
+        this.elementProxy = new EncElementProxy(this.d3R)
         this.tooltip = new ToolTip(this.d3R, this.elementProxy);
         const builder = new EnclosureDiagramBuilder(this.d3R, this.elementProxy);
         this.root = builder.makeRoot(data);

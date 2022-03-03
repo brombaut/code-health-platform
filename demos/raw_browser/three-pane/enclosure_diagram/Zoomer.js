@@ -51,12 +51,12 @@ class Zoomer {
             };
         }
         const transition = encDiagram.svg.transition()
-            .duration(750)
+            .duration(0)
             .tween("zoom", zoomTween);
         
         encDiagram.labels
             .style("fill-opacity", (d) => d.parent == node ? 1 : 0)
-            .style("display", (d) => d.parent == node ? "inline" : "none")
+            .style("display", (d) => d.parent == node ? "inline" : "none");
 
     }
 }

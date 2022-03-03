@@ -6,14 +6,22 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="enclosure_diagram/enclosure_diagram_style.css">
     <link rel="stylesheet" href="info_pane/information_pane_style.css">
+    <link rel="stylesheet" href="dependency_pane/dependency_pane_style.css">
     
     <script src="d3.v7.min.js"></script>
     
     <script src="enclosure_diagram/EnclosureDiagram.js"></script>
     <script src="enclosure_diagram/EnclosureDiagramBuilder.js"></script>
-    <script src="enclosure_diagram/ElementProxy.js"></script>
+    <script src="enclosure_diagram/EncElementProxy.js"></script>
     <script src="enclosure_diagram/Zoomer.js"></script>
     <script src="enclosure_diagram/ToolTip.js"></script>
+
+    <script src="dependency_pane/DependencyPane.js"></script>
+    <script src="dependency_pane/DependencyTreeParser.js"></script>
+    <script src="dependency_pane/DependencyTree.js"></script>
+    <script src="dependency_pane/DependencyTreeNode.js"></script>
+    <script src="dependency_pane/TreeDiagram.js"></script>
+    <script src="dependency_pane/DepElementProxy.js"></script>
 
     <script src="info_pane/InformationPane.js"></script>
     <script src="info_pane/SystemPath.js"></script>
@@ -52,7 +60,9 @@
                     </div>
                 </div>
             </div>
-            <div id="dependency-pane" class="right-sub-pane flex-1"></div>
+            <div id="dependency-pane" class="right-sub-pane flex-1">
+                <div id="tree-diagram" class="flex-1"></div>
+            </div>
         </section>
     </main>
 </body>
