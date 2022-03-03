@@ -168,10 +168,18 @@ def _matching_part_in(hierarchy, part):
     return next((x for x in hierarchy if x['name'] == part), None)
 
 
+def _remove_file_extention(name):
+    return os.path.splitext(name)[0]
+
+
 def _ensure_branch_exists(hierarchy, branch):
     existing = _matching_part_in(hierarchy, branch)
     if not existing:
-        new_branch = {'name': branch, 'children': []}
+        new_branch = {
+            'name': branch,
+            "name_no_extension": _remove_file_extention(branch),
+            'children': []
+        }
         hierarchy.append(new_branch)
         existing = new_branch
     return existing
@@ -181,6 +189,7 @@ def _add_leaf(hierarchy, module, weight_calculator, name):
     module_weights = weight_calculator(module.name)
     new_leaf = {
         'name': name,
+        "name_no_extension": _remove_file_extention(name),
         'children': [],
         'file_language': module.file_language,
         'code_lines': module.code_lines,
@@ -217,7 +226,11 @@ def generate_structure_from(modules, weight_calculator):
         parts = module.parts()
         _insert_parts_into(hierarchy, module, weight_calculator, parts)
 
-    structure = {'name': 'root', 'children': hierarchy}
+    structure = {
+        'name': 'root',
+        'name_no_extension': 'root',
+        'children': hierarchy
+    }
     return structure
 
 
