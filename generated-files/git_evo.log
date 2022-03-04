@@ -1,265 +1,214 @@
-[b7247d6] brombaut 2021-02-05 Adding some explanation to the readme
-33	0	README.md
-2	0	extract_imports_and_calls.sh
+[da81eeb] Georgios Gousios 2018-10-24 Support native methods when resolving dynamic calls
+1	1	src/main/java/gr/gousiosg/javacg/stat/DynamicCallManager.java
+20	0	src/test/resources/gr/gousiosg/javacg/native.feature
 
-[7e03334] brombaut 2020-12-27 Final report
--	-	proposal/report/{BenRombaut_CISC873_DraftFinalReport.pdf => BenRombaut_CISC873_FinalReport.pdf}
+[1bb5cb9] Georgios Gousios 2018-10-24 Add license
+28	0	src/main/java/gr/gousiosg/javacg/dyn/Pair.java
 
-[9f37fdf] brombaut 2020-12-20 Removing old r script
-2	19	README.md
-0	142	analytics/dl_evo_explore.Rmd
-4201	437	analytics/dl_lib_evo_analytics.ipynb
--	-	analytics/plots/imports_across_repos_with_percent.png
--	-	analytics/plots/projects_reporting.png
--	-	proposal/report/BenRombaut_CISC873_DraftFinalReport.pdf
+[b85c154] Georgios Gousios 2018-10-24 Change license as per author's request
+8	23	src/main/java/gr/gousiosg/javacg/stat/DynamicCallManager.java
 
-[e67062b] brombaut 2020-12-17 Updates
--	-	analytics/plots/imports_across_repos.png
--	-	proposal/pics/call_types.png
--	-	proposal/pics/types_of_imports.png
-3	3	repo-collection/aoo_repo_scraper.py
-187	1	repo-collection/aoo_repos.json
+[7cf9964] Georgios Gousios 2018-10-23 Convert processing loop to stream
+13	5	src/main/java/gr/gousiosg/javacg/stat/ClassVisitor.java
+49	19	src/main/java/gr/gousiosg/javacg/stat/JCallGraph.java
+14	7	src/main/java/gr/gousiosg/javacg/stat/MethodVisitor.java
 
-[0a54a81] brombaut 2020-12-12 Adding files for repo-collection
-1	1	data_transform_scripts/repo_import_diffs_totals.py
-3	3	data_transform_scripts/source_imports_parser.py
-9	0	extract_diffs_and_timelines.sh
-10	124	extract_imports_and_calls.sh
-39	24	repo-collection/aoo_repo_scraper.py
-125	1	repo-collection/aoo_repos.json
-22	7	repo_analyzer.py
+[9c0966a] Georgios Gousios 2018-10-23 Merge branch 'matthieu-vergne-fix/broken_call_graph_for_nested_lambdas'
+[ad203c1] Georgios Gousios 2018-10-23 Add license header; minor style fixes
+35	11	src/main/java/gr/gousiosg/javacg/stat/DynamicCallManager.java
 
-[7de1544] brombaut 2020-12-11 Adding milestone 3
--	-	proposal/BenRombaut_Milestone3_Summary.docx
--	-	proposal/BenRombaut_Milestone3_Summary.pdf
+[48a5bf0] Georgios Gousios 2018-10-23 Merge branch 'fix/broken_call_graph_for_nested_lambdas' of https://github.com/matthieu-vergne/java-callgraph into matthieu-vergne-fix/broken_call_graph_for_nested_lambdas
+[4589557] Georgios Gousios 2018-10-23 Merge branch 'matthieu-vergne-feature/functional_testing'
+[93c5f54] Georgios Gousios 2018-10-23 Change package names to match main project
+1	1	src/test/java/{ => gr/gousiosg}/javacg/JARBuilder.java
+1	1	src/test/java/{ => gr/gousiosg}/javacg/RunCucumberTest.java
+1	1	src/test/java/{ => gr/gousiosg}/javacg/StepDefinitions.java
+0	0	src/test/resources/{ => gr/gousiosg}/javacg/lambda.feature
 
-[2adb20a] brombaut 2020-11-29 Updating for milestone 3
-612	18	analytics/dl_lib_evo_analytics.ipynb
-329	0	data_transform_scripts/parse_call_diffs.py
-114	0	data_transform_scripts/repo_call_diffs_totals.py
-64	8	extract_imports_and_calls.sh
-12	11	repo_analyzer.py
+[98b6a97] Georgios Gousios 2018-10-23 Merge branch 'feature/functional_testing' of https://github.com/matthieu-vergne/java-callgraph into matthieu-vergne-feature/functional_testing
+[6b0dcf5] Georgios Gousios 2018-10-23 Merge pull request #20 from matthieu-vergne/fix/warnings
+[c46398c] Georgios Gousios 2018-10-23 Merge branch 'matthieu-vergne-fix/jar_resource_leak'
+[a90993c] Georgios Gousios 2018-10-23 Remove whitespace
+3	3	src/main/java/gr/gousiosg/javacg/stat/JCallGraph.java
 
-[a743a1d] brombaut 2020-11-18 Fix warning
-1	0	repo_analyzer.py
+[e84db11] Matthieu Vergne 2018-10-22 Fix: BCEL bug fixed in 6.1.
+1	1	pom.xml
+1	1	src/main/java/gr/gousiosg/javacg/stat/DynamicCallManager.java
 
-[bc287c7] brombaut 2020-11-18 Merge branch 'main' of https://github.com/brombaut/CISC873_TermProject into main
-[90c0656] brombaut 2020-11-18 Full imports run on the DL Scents repos list
-56	235	analytics/dl_lib_evo_analytics.ipynb
-7	21	data_transform_scripts/parse_import_diffs.py
-3	3	data_transform_scripts/repo_import_diffs_totals.py
-61	26	extract_imports_and_calls.sh
-3	3	repo_analyzer.py
+[cd4c548] Matthieu Vergne 2018-10-22 Fix: ConstantMethodref only is too narrow.
+2	2	src/main/java/gr/gousiosg/javacg/stat/DynamicCallManager.java
 
-[9684799] Ben Rombaut 2020-11-17 R data analysis file - hopefully final update
-21	8	analytics/dl_evo_explore.Rmd
+[3249600] Matthieu Vergne 2018-10-21 Fix: Missing method name in nested lambdas (broken call graph).
+8	2	src/main/java/gr/gousiosg/javacg/stat/ClassVisitor.java
+116	0	src/main/java/gr/gousiosg/javacg/stat/DynamicCallManager.java
 
-[c757e56] Ben Rombaut 2020-11-17 Merge branch 'main' of github.com:brombaut/CISC873_TermProject into main
-[f0e2bcb] brombaut 2020-11-17 Adding notebook
-2	1	.gitignore
-379	0	analytics/dl_lib_evo_analytics.ipynb
-8	8	extract_imports_and_calls.sh
--	-	proposal/BenRombaut_Milestone2_Summary.docx
--	-	proposal/BenRombaut_Milestone2_Summary.pdf
+[6c06e51] Matthieu Vergne 2018-10-21 Highlight the broken call graphs of nested lambdas with a test.
+40	0	src/test/resources/javacg/lambda.feature
 
-[dfa8c1c] Ben Rombaut 2020-11-14 Merge branch 'main' of github.com:brombaut/CISC873_TermProject into main
-[71cd7d2] brombaut 2020-11-14 idk
-18	7	data_transform_scripts/function_calls_finder.py
-103	0	data_transform_scripts/repo_import_diffs_totals.py
-48	0	data_transform_scripts/utils.py
-25	24	extract_imports_and_calls.sh
-3	3	repo_analyzer.py
+[e191b82] Matthieu Vergne 2018-10-20 Add test for lambda retrieval.
+18	0	pom.xml
+117	0	src/test/java/javacg/JARBuilder.java
+10	0	src/test/java/javacg/RunCucumberTest.java
+48	0	src/test/java/javacg/StepDefinitions.java
+37	0	src/test/resources/javacg/lambda.feature
 
-[914629a] Ben Rombaut 2020-11-13 Merge branch 'main' of github.com:brombaut/CISC873_TermProject into main
-[8e27750] Ben Rombaut 2020-11-13 R file
-84	25	analytics/dl_evo_explore.Rmd
+[c9c24b7] Matthieu Vergne 2018-10-20 Fix warning: Explicitly accept any class.
+1	1	src/main/java/gr/gousiosg/javacg/dyn/Pair.java
 
-[96b0010] brombaut 2020-11-13 Parse repo import diffs
-103	20	data_transform_scripts/parse_import_diffs.py
-3	1	extract_imports_and_calls.sh
+[1019a79] Matthieu Vergne 2018-10-20 Fix warning: Explicitly accept any class.
+1	1	src/main/java/gr/gousiosg/javacg/dyn/Instrumenter.java
 
-[c1335e2] Ben Rombaut 2020-11-13 Merge branch 'main' of github.com:brombaut/CISC873_TermProject into main
-[1d9ec68] brombaut 2020-11-13 Parse out imports by repo level
-37	0	data_transform_scripts/parse_import_diffs.py
-6	1	data_transform_scripts/write_repo_release_to_csv.py
-24	24	extract_imports_and_calls.sh
+[6f1e3f5] Matthieu Vergne 2018-10-20 Fix: close JAR resource after use.
+15	15	src/main/java/gr/gousiosg/javacg/stat/JCallGraph.java
 
-[45a2838] Ben Rombaut 2020-11-11 Adding try catches
-24	24	extract_imports_and_calls.sh
-17	10	repo_analyzer.py
+[bd61ce5] Georgios Gousios 2017-04-03 Update documentation
+26	22	README.md
 
-[2fa983e] brombaut 2020-11-11 Only pull out dl library imports
-18	12	data_transform_scripts/source_imports_parser.py
-24	9	extract_imports_and_calls.sh
-1	1	repo_analyzer.py
+[a6709b2] Georgios Gousios 2017-04-03 Make code look more like Java 8
+5	5	src/main/java/gr/gousiosg/javacg/dyn/Instrumenter.java
+10	14	src/main/java/gr/gousiosg/javacg/dyn/MethodStack.java
 
-[19af6e7] brombaut 2020-11-11 Adding inital data explore script
-70	0	analytics/dl_evo_explore.Rmd
-14	7	data_transform_scripts/library_imports_finder.py
-13	3	extract_imports_and_calls.sh
+[4d53e06] Georgios Gousios 2017-04-03 Java 8: Include invokedynamic visitor
+7	2	src/main/java/gr/gousiosg/javacg/stat/MethodVisitor.java
 
-[1ba5c11] brombaut 2020-11-11 Add repo
-2	1	extract_imports_and_calls.sh
+[4f80ad1] Christoph Laaber 2017-03-09 added method parameters in output of static callgraph
+18	18	src/main/java/gr/gousiosg/javacg/stat/MethodVisitor.java
 
-[e85b931] brombaut 2020-11-11 Remove csvs from tracking
-0	2136	data/csv/calls.csv
-0	42	data/csv/import_diffs.csv
-0	179	data/csv/imports.csv
-0	6	data/csv/releases.csv
+[430f69b] Christoph Laaber 2017-03-01 updated pom dependencies; works now for Java 8 programs (in particular for Lambdas, but I reckon for any byte code that utilizes invokedynamic)
+4	0	.gitignore
+5	5	pom.xml
 
-[7f4bdbd] brombaut 2020-11-11 Pushing to get on sail server
-1	0	.gitignore
-2135	188	data/csv/calls.csv
-0	470	data/csv/import_diffs.csv
-0	1800	data/csv/imports.csv
-0	11	data/csv/releases.csv
-8	3	data_transform_scripts/function_calls_finder.py
-4	3	extract_imports.sh => extract_imports_and_calls.sh
-6	6	repo_analyzer.py
+[86d8f4c] Georgios Gousios 2013-04-16 Merge pull request #3 from Gary-Titus/patch-1
+[6f35c60] Gary 2013-04-15 Changes to documentation
+4	6	README.md
 
-[82a5ee2] brombaut 2020-11-10 parse call jsons to csv
-189	0	data/csv/calls.csv
-94	0	data_transform_scripts/parse_call_jsons_to_csv.py
+[ed62935] Georgios Gousios 2012-02-03 Updated documentation
+66	17	README.md
 
-[2c8553f] brombaut 2020-11-10 Cleaning up
-1	1	.idea/misc.xml
-1	1	.idea/project.iml
-0	0	__init__.py
-0	0	data_transform_scripts/__init__.py
-10	5	data_transform_scripts/function_calls_collector.py
-0	2	data_transform_scripts/function_calls_finder.py
-77	58	data_transform_scripts/tests/test_function_calls_collector.py
-1	1	extract_imports.sh
-14	9	data_transform_scripts/repo_analyzer.py => repo_analyzer.py
-0	1	requirements.txt
+[e4598ef] Georgios Gousios 2011-06-22 Style fixes
+20	20	process_trace.rb
 
-[acec137] brombaut 2020-11-10 Add test for parsing function call params
-19	26	data_transform_scripts/tests/test_function_calls_collector.py
+[9a56c68] Georgios Gousios 2011-06-22 Add semicolon to result ouput for consistency
+1	1	src/main/java/gr/gousiosg/javacg/stat/ClassVisitor.java
 
-[e046b9f] brombaut 2020-11-10 Add tests for parsing call functions
-3	0	.idea/vcs.xml
-31	0	data_transform_scripts/function_calls_collector.py
-167	0	data_transform_scripts/function_calls_finder.py
-12	7	data_transform_scripts/repo_analyzer.py
-0	1	data_transform_scripts/source_imports_parser.py
-0	0	data_transform_scripts/tests/__init__.py
-251	0	data_transform_scripts/tests/test_function_calls_collector.py
-10	2	data_transform_scripts/tests/test_imports.py
-4	0	run_tests.sh
-0	10	test.sh
+[0113d25] Georgios Gousios 2011-06-22 Script to process method trace result file
+97	0	process_trace.rb
 
-[632a7e5] brombaut 2020-11-08 Will have to fix imports
-2	2	data_transform_scripts/repo_analyzer.py
-2	2	data_transform_scripts/tests/test_imports.py
+[327cf1c] Georgios Gousios 2011-06-18 Mark invoked methods with identifiers, to differentiate interface from virtual method from static method invocations
+2	2	src/main/java/gr/gousiosg/javacg/stat/ClassVisitor.java
+23	5	src/main/java/gr/gousiosg/javacg/stat/MethodVisitor.java
 
-[289866b] brombaut 2020-11-08 Adding tests for parsing import statements
-6	10	data_transform_scripts/{find_ml_library_imports.py => library_imports_finder.py}
-14	7	data_transform_scripts/repo_analyzer.py
-6	9	data_transform_scripts/{file_imports_parser.py => source_imports_parser.py}
-126	0	data_transform_scripts/tests/test_imports.py
+[bfbb98b] Georgios Gousios 2011-06-18 Shut-up maven warning
+3	2	pom.xml
 
-[314c08c] brombaut 2020-11-07 Fix issue with sorting releases
-43	603	data/csv/import_diffs.csv
-1	1	data_transform_scripts/parse_import_diffs.py
+[1e7a545] Georgios Gousios 2011-06-18 Rename constructor calls from ClassName -> <init>
+9	3	src/main/java/gr/gousiosg/javacg/dyn/Instrumenter.java
+3	3	src/main/java/gr/gousiosg/javacg/dyn/{Graph.java => MethodStack.java}
 
-[88223da] brombaut 2020-11-07 Add script to parse diffs of imports in files between releases
-3	0	.idea/.gitignore
-6	0	.idea/inspectionProfiles/profiles_settings.xml
-4	0	.idea/misc.xml
-8	0	.idea/modules.xml
-17	0	.idea/project.iml
-6	0	.idea/vcs.xml
-3	3	README.md
-1072	0	data/csv/import_diffs.csv
-0	0	{repo-analyzer => data_transform_scripts}/file_imports_parser.py
-0	0	{repo-analyzer => data_transform_scripts}/find_ml_library_imports.py
-226	0	data_transform_scripts/parse_import_diffs.py
-0	0	{repo-analyzer => data_transform_scripts}/parse_import_jsons_to_csv.py
-0	0	{repo-analyzer => data_transform_scripts}/repo_analyzer.py
-0	0	{repo-analyzer => data_transform_scripts}/write_repo_release_to_csv.py
-8	6	extract_imports.sh
+[85c69db] Panos Louridas 2011-06-17 Add support for relationships between classes.
+21	2	src/main/java/gr/gousiosg/javacg/stat/ClassVisitor.java
+2	1	src/main/java/gr/gousiosg/javacg/stat/MethodVisitor.java
 
-[7e981ce] brombaut 2020-11-06 Add scripts to keep track of release versions for repos
-18	0	README.md
-1979	0	data/csv/imports.csv
-17	0	data/csv/releases.csv
-19	5	extract_imports.sh
-3	10	repo-analyzer/parse_import_jsons_to_csv.py
-0	0	repo-analyzer/{main.py => repo_analyzer.py}
-61	0	repo-analyzer/write_repo_release_to_csv.py
-10	0	test.sh
+[59352db] Georgios Gousios 2011-06-17 Restrict processing to first thread that enters the call trace code
+14	1	src/main/java/gr/gousiosg/javacg/dyn/Graph.java
 
-[bb325fd] brombaut 2020-11-06 Extract file path from repo dir
-0	1979	data/csv/imports-2020-10-29.csv
-3	1	repo-analyzer/file_imports_parser.py
-24	1	repo-analyzer/main.py
+[f052253] Georgios Gousios 2011-06-17 Trace method execution
+2	0	README.md
+31	3	src/main/java/gr/gousiosg/javacg/dyn/Graph.java
 
-[4bc97af] brombaut 2020-11-03 Adding proposal milestone
-4	0	README.md
--	-	proposal/BenRombaut_Milestone1_Summary.docx
--	-	proposal/BenRombaut_Milestone1_Summary.pdf
+[69a4117] Georgios Gousios 2011-06-13 Documentation style fixes
+22	20	README.md
 
-[67a45e0] brombaut 2020-10-29 Extract import info pipeline is working
-3	1	.gitignore
-1979	0	data/csv/imports-2020-10-29.csv
-1	0	data/repos
-37	0	extract_imports.sh
-0	34	repo-analyzer/file_function_calls_parser.py
-50	0	repo-analyzer/file_imports_parser.py
-11	17	repo-analyzer/find_ml_library_imports.py
-19	5	repo-analyzer/main.py
-0	156	repo-analyzer/my_find_function_calls.py
-90	0	repo-analyzer/parse_import_jsons_to_csv.py
+[3f11503] Georgios Gousios 2011-06-13 Documentation fixes
+19	11	README.md
 
-[47b2118] brombaut 2020-10-29 Moving data collection dirs up
-0	29	data-collection/astpath_analyze_repo.py
-0	5	data-collection/astpath_commands.txt
-0	0	{data-collection/repo-analyzer => repo-analyzer}/file_function_calls_parser.py
-0	0	{data-collection/repo-analyzer => repo-analyzer}/find_ml_library_imports.py
-0	0	{data-collection/repo-analyzer => repo-analyzer}/main.py
-0	0	{data-collection/repo-analyzer => repo-analyzer}/my_find_function_calls.py
-0	0	{data-collection/repo-collection => repo-collection}/aoo_repo_scraper.py
-0	0	{data-collection/repo-collection => repo-collection}/aoo_repos.json
-0	0	{data-collection/repo-collection => repo-collection}/repos_from_DLScents.csv
+[0f83bea] Georgios Gousios 2011-06-13 Support processing many Jars at once
+1	1	src/main/java/gr/gousiosg/javacg/dyn/Graph.java
+23	15	src/main/java/gr/gousiosg/javacg/stat/JCallGraph.java
+1	1	src/main/java/gr/gousiosg/javacg/stat/MethodVisitor.java
 
-[6b83d1d] brombaut 2020-10-29 Updating scraping calls and params
-1	1	.gitignore
-0	1	data-collection/repo-analyzer/data/calls@brombaut@tangent@tf_extensions.py.json
-1	2	data-collection/repo-analyzer/file_function_calls_parser.py
-0	105	data-collection/repo-analyzer/find_function_calls.py
-132	19	data-collection/repo-analyzer/my_find_function_calls.py
+[11b74b9] Georgios Gousios 2011-06-13 Lots of documentation
+78	8	README.md
 
-[9fdf8e4] brombaut 2020-10-28 Cleaning up a bit
-0	23	data-collection/repo-analyzer/data/calls@brombaut%ml@my_ml_client.py.json
-0	1318	data-collection/repo-analyzer/data/calls@brombaut%tangent@tf_extensions.py.json
-0	1	data-collection/repo-analyzer/data/calls@brombaut@ml_stuff@my_ml_client.py.json
-0	1862	data-collection/repo-analyzer/data/calls@brombaut@ml_stuff@tf_extensions.py.json
-1	0	data-collection/repo-analyzer/data/calls@brombaut@tangent@tf_extensions.py.json
-3	4	data-collection/repo-analyzer/file_function_calls_parser.py
-38	0	data-collection/repo-analyzer/find_ml_library_imports.py
-4	25	data-collection/repo-analyzer/main.py
-10	11	data-collection/repo-analyzer/my_find_function_calls.py
+[cefeda9] Georgios Gousios 2011-06-13 Different archives for static and dynamic version
+5	1	README.md
+1	1	assembly.xml => assembly-dyn.xml
+30	0	assembly-st.xml
+4	4	pom.xml
 
-[be6c829] brombaut 2020-10-28 Starting from my find function calls parser. Finding function calls and parent function fine, just need to parse args now
-23	0	data-collection/repo-analyzer/data/calls@brombaut%ml@my_ml_client.py.json
-1318	0	data-collection/repo-analyzer/data/calls@brombaut%tangent@tf_extensions.py.json
-0	0	data-collection/{repo_analyzer => repo-analyzer}/data/calls@brombaut@ml_stuff@my_ml_client.py.json
-0	0	data-collection/{repo_analyzer => repo-analyzer}/data/calls@brombaut@ml_stuff@tf_extensions.py.json
-4	3	data-collection/{repo_analyzer => repo-analyzer}/file_function_calls_parser.py
-2	1	data-collection/{repo_analyzer => repo-analyzer}/find_function_calls.py
-0	0	data-collection/{repo_analyzer => repo-analyzer}/main.py
-44	0	data-collection/repo-analyzer/my_find_function_calls.py
+[20d0848] Georgios Gousios 2011-06-12 Count number of dynamic invocations
+26	6	src/main/java/gr/gousiosg/javacg/dyn/Graph.java
+1	1	src/main/java/gr/gousiosg/javacg/dyn/Instrumenter.java
+42	0	src/main/java/gr/gousiosg/javacg/dyn/Pair.java
 
-[bd36423] brombaut 2020-10-27 Work on extracting function call deps
-42	0	.gitignore
-29	0	data-collection/astpath_analyze_repo.py
-5	0	data-collection/astpath_commands.txt
-82	0	data-collection/repo-collection/aoo_repo_scraper.py
-1	0	data-collection/repo-collection/aoo_repos.json
-60	0	data-collection/repo-collection/repos_from_DLScents.csv
-1	0	data-collection/repo_analyzer/data/calls@brombaut@ml_stuff@my_ml_client.py.json
-1862	0	data-collection/repo_analyzer/data/calls@brombaut@ml_stuff@tf_extensions.py.json
-35	0	data-collection/repo_analyzer/file_function_calls_parser.py
-104	0	data-collection/repo_analyzer/find_function_calls.py
-73	0	data-collection/repo_analyzer/main.py
-23	0	requirements.txt
+[7f6642c] Georgios Gousios 2011-06-12 Improve documentation
+37	10	README.md
+
+[78aede5] Georgios Gousios 2011-06-12 Various fixes, it almost runs now
+18	5	src/main/java/gr/gousiosg/javacg/dyn/Graph.java
+19	13	src/main/java/gr/gousiosg/javacg/dyn/Instrumenter.java
+
+[5b26bdc] Georgios Gousios 2011-06-11 Print diagnostics and enchanced classes
+39	24	src/main/java/gr/gousiosg/javacg/dyn/Instrumenter.java
+
+[8a39514] Georgios Gousios 2011-06-11 Produce custom JAR for running as a JVM agent
+30	0	assembly.xml
+52	23	pom.xml
+
+[ff1a4d3] Georgios Gousios 2011-06-11 Lincense headers
+28	0	src/main/java/gr/gousiosg/javacg/dyn/Graph.java
+28	0	src/main/java/gr/gousiosg/javacg/dyn/Instrumenter.java
+28	0	src/main/java/gr/gousiosg/javacg/stat/ClassVisitor.java
+28	0	src/main/java/gr/gousiosg/javacg/stat/JCallGraph.java
+28	0	src/main/java/gr/gousiosg/javacg/stat/MethodVisitor.java
+
+[e1e387c] Georgios Gousios 2011-06-11 Dynamic call graph generation based on method instrumentation
+18	0	src/main/java/gr/gousiosg/javacg/dyn/Graph.java
+126	0	src/main/java/gr/gousiosg/javacg/dyn/Instrumenter.java
+
+[7bdc6b5] Georgios Gousios 2011-06-09 A bit of information and javassist as a dependency
+0	10	README
+22	0	README.md
+7	0	pom.xml
+
+[1c09fc5] Georgios Gousios 2011-06-09 Prepare to import the dynamic call graph analyser
+10	0	README
+1	1	src/main/java/gr/gousiosg/{callgraph => javacg/stat}/ClassVisitor.java
+1	3	src/main/java/gr/gousiosg/{callgraph => javacg/stat}/JCallGraph.java
+1	1	src/main/java/gr/gousiosg/{callgraph => javacg/stat}/MethodVisitor.java
+
+[a9adb7b] Georgios Gousios 2011-05-28 Process all files in a jar archive
+21	4	src/main/java/gr/gousiosg/callgraph/JCallGraph.java
+4	2	src/main/java/gr/gousiosg/callgraph/MethodVisitor.java
+
+[78472e2] Georgios Gousios 2011-05-28 Remove extra code, formatting
+11	7	src/main/java/gr/gousiosg/callgraph/ClassVisitor.java
+16	67	src/main/java/gr/gousiosg/callgraph/MethodVisitor.java
+
+[f3ad01c] Georgios Gousios 2011-05-28 Remove asm, import bcel, call graph produced from static referenced class
+3	3	pom.xml
+0	47	src/main/java/gr/gousiosg/callgraph/ClassPrinter.java
+34	0	src/main/java/gr/gousiosg/callgraph/ClassVisitor.java
+9	6	src/main/java/gr/gousiosg/callgraph/JCallGraph.java
+107	0	src/main/java/gr/gousiosg/callgraph/MethodVisitor.java
+
+[fa79212] Georgios Gousios 2011-05-27 Example from the ASM documentation
+47	0	src/main/java/gr/gousiosg/callgraph/ClassPrinter.java
+22	5	src/main/java/gr/gousiosg/callgraph/JCallGraph.java
+
+[f98cdc1] Georgios Gousios 2011-05-27 Basic renames and more ignores
+3	0	.gitignore
+14	6	pom.xml
+1	5	src/main/java/gr/gousiosg/callgraph/{App.java => JCallGraph.java}
+0	38	src/test/java/gr/gousiosg/callgraph/AppTest.java
+
+[bf7276e] Georgios Gousios 2011-05-27 Git ignore files
+10	0	.gitignore
+
+[9c5bd1d] Georgios Gousios 2011-05-27 Simple maven project
+25	0	pom.xml
+13	0	src/main/java/gr/gousiosg/callgraph/App.java
+38	0	src/test/java/gr/gousiosg/callgraph/AppTest.java
+
+[25f5438] Georgios Gousios 2011-05-27 first commit
+0	0	README
