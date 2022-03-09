@@ -2,7 +2,7 @@ class DependencyTreeNode {
     constructor(node) {
         this.node = node;
         this.name = this.node.data.name;
-        this.children = null;
+        this.children = [];
         this.dependencies = null;
     }
 
@@ -32,8 +32,6 @@ class DependencyTreeNode {
             result.children = this.dependencies
                 .map((n) => this.formatDependenciesForTreeDiagramFormat(n))
                 .filter((dep) => dep.node !== this.node);
-        } else {
-            result.children = [];
         }
         return result;
     }

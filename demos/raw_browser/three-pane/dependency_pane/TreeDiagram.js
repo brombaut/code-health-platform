@@ -1,10 +1,12 @@
 class TreeDiagram {
-    constructor(d3) {
+    constructor(d3, callbacks) {
         this.d3R = d3;
         this.elementProxy = new DepElementProxy();
+        this.callbacks = callbacks;
     }
 
     makeNewDiagram(data) {
+        console.log(data);
         this.elementProxy.reset();
         this.root = this.makeRoot(data);
         this.svg = this.makeSvg();
@@ -15,7 +17,10 @@ class TreeDiagram {
     makeRoot(data) {
         const treemap = this.d3R
             .tree()
-            .size([this.elementProxy.containerHeight() - this.elementProxy.margin(), this.elementProxy.containerWidth() - this.elementProxy.margin()]);
+            .size([
+                this.elementProxy.containerHeight() - this.elementProxy.margin(),
+                this.elementProxy.containerWidth() - this.elementProxy.margin()
+            ]);
         const nodes = this.d3R.hierarchy(data, d => d.children);
         const root = treemap(nodes);
         return root;
@@ -57,7 +62,10 @@ class TreeDiagram {
         result.append("circle")
             .attr("r", d => 20)
             .style("stroke", d => d.data.type)
-            .style("fill", "#5f9ea0");
+            .style("fill", "#5f9ea0")
+            .on("click", this.callbacks.onClick)
+            .on("mouseenter", this.callbacks.onMouseEnter)
+            .on("mouseleave", this.callbacks.onMouseLeave);
 
         result.append("text")
             .text(d => d.data.name)
@@ -109,7 +117,6 @@ class TreeDiagram {
                     ${(d.parent.y + d.y) / 2},${d.x}
                     ${d.y},${d.x}
                 `;
-                console.log(dAttr);
                 return dAttr;
 
             })
