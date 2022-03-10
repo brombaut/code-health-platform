@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="enclosure_diagram/enclosure_diagram_style.css">
+    <link rel="stylesheet" href="info_pane/information_pane_style.css">
+    <link rel="stylesheet" href="dependency_pane/dependency_pane_style.css">
+    
+    <script src="d3.v7.min.js"></script>
+    
+    <script src="enclosure_diagram/EnclosureDiagram.js"></script>
+    <script src="enclosure_diagram/EnclosureDiagramBuilder.js"></script>
+    <script src="enclosure_diagram/EncElementProxy.js"></script>
+    <script src="enclosure_diagram/Zoomer.js"></script>
+    <script src="enclosure_diagram/ToolTip.js"></script>
+
+    <script src="dependency_pane/DependencyPane.js"></script>
+    <script src="dependency_pane/DependencyTreeParser.js"></script>
+    <script src="dependency_pane/DependencyTree.js"></script>
+    <script src="dependency_pane/DependencyTreeNode.js"></script>
+    <script src="dependency_pane/TreeDiagram.js"></script>
+    <script src="dependency_pane/DepElementProxy.js"></script>
+
+    <script src="info_pane/InformationPane.js"></script>
+    <script src="info_pane/SystemPath.js"></script>
+    <script src="info_pane/NodeSubModules.js"></script>
+    <script src="info_pane/NodeDirectoryInformation.js"></script>
+    <script src="info_pane/NodeFileInformation.js"></script>
+    <script src="info_pane/InfoNodeCallbacksMaker.js"></script>
+    <script src="info_pane/NodeIdMaker.js"></script>
+
+    <script src="events/EventTypes.js"></script>
+    <script src="events/NodeEvent.js"></script>
+    <script src="events/EventReceiver.js"></script>
+    <script src="events/EncNodeSelectedEvent.js"></script>
+    <script src="events/EncNodeMouseEnterEvent.js"></script>
+    <script src="events/EncNodeMouseLeaveEvent.js"></script>
+    <script src="events/InfoNodeSelectedEvent.js"></script>
+    <script src="events/InfoNodeMouseEnterEvent.js"></script>
+    <script src="events/InfoNodeMouseLeaveEvent.js"></script>
+
+
+    <script src="index.js" defer></script>
+</head>
+
+<body>
+    <main id="main-container" class="flex-row">
+        <section id="left-pane" class="flex-row">
+            <div id="enclosure-diagram" class="flex-1"></div>
+        </section>
+        <section id="right-pane" class="flex-column">
+            <div id="info-pane" class="right-sub-pane">
+                <div id="system-path-container">
+                    <div id="system-path">
+                    </div>
+                    <hr>
+                    <div id="selected-node-details">
+                    </div>
+                </div>
+            </div>
+            <div id="dependency-pane" class="right-sub-pane flex-1">
+                <div id="tree-diagram" class="flex-1"></div>
+            </div>
+        </section>
+    </main>
+</body>
+
+</html>

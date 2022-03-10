@@ -1,0 +1,86 @@
+#system-path #prefix-label,
+#system-path .system-component-separator,
+#system-path .system-component {
+    margin: 0px 2px;
+    font-weight: bold;
+    color:rgb(83, 83, 83);
+}
+
+#system-path #prefix-label.selectable,
+#system-path .system-component.selectable {
+    color: var(--selectable-color);
+}
+
+#system-path #prefix-label.selectable:hover,
+#system-path .system-component.selectable:hover {
+    cursor: pointer;
+    color: var(--hover-color);
+}
+
+#system-path #prefix-label.selected,
+#system-path .system-component.selected {
+    color: var(--selected-color);
+}
+
+#selected-node-details {
+    height: 300px;
+}
+
+#node-directory-information {
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+}
+
+.vertial-rule {
+    height: 100%;
+    border-left: 2px solid gray;
+}
+
+#module-children {
+    overflow: auto;
+    flex: 1;
+    height: 100%;
+}
+
+#module-children-ul {
+    list-style: none;
+    padding-left: 8px;
+}
+
+#module-children-ul li {
+    margin: 4px 0;
+}
+
+#module-children-ul li .wrapper {
+    display: flex;
+    flex-direction: row;
+}
+
+#module-children li .icon{
+    height: 20px;
+    width: 28px;
+}
+
+#module-children li .node-sub-module {
+    font-weight: bold;
+    color: var(--selectable-color);;
+}
+
+#module-children li .node-sub-module:hover,
+#module-children li .node-sub-module.hovering {
+    cursor: pointer;
+    color: var(--hover-color);
+}
+
+#node-file-information-table td,
+#node-directory-information-table td {
+    padding: 4px 8px;
+    font-size: 1em;
+}
+
+#node-file-information-table td .label,
+#node-directory-information-table td .label {
+    font-weight: bold;
+}
+

@@ -1,2 +1,0 @@
-author,color
-Adam Petersen,green

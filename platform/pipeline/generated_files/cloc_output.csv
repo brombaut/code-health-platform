@@ -1,0 +1,23 @@
+
+language,filename,blank,comment,code,"github.com/AlDanial/cloc v 1.92  T=0.18 s (112.1 files/s, 9160.2 lines/s)"
+Markdown,/home/brombaut/work/java-callgraph/README.md,45,0,141
+Java,/home/brombaut/work/java-callgraph/src/main/java/gr/gousiosg/javacg/dyn/Instrumenter.java,27,29,125
+XML,/home/brombaut/work/java-callgraph/target/surefire-reports/TEST-gr.gousiosg.javacg.RunCucumberTest.xml,2,0,104
+Java,/home/brombaut/work/java-callgraph/src/test/java/gr/gousiosg/javacg/JARBuilder.java,15,0,102
+Maven,/home/brombaut/work/java-callgraph/pom.xml,4,0,84
+Java,/home/brombaut/work/java-callgraph/src/main/java/gr/gousiosg/javacg/dyn/MethodStack.java,12,28,76
+Java,/home/brombaut/work/java-callgraph/src/main/java/gr/gousiosg/javacg/stat/MethodVisitor.java,16,33,68
+Java,/home/brombaut/work/java-callgraph/src/main/java/gr/gousiosg/javacg/stat/DynamicCallManager.java,9,52,64
+Cucumber,/home/brombaut/work/java-callgraph/target/test-classes/gr/gousiosg/javacg/lambda.feature,5,8,64
+Ruby,/home/brombaut/work/java-callgraph/process_trace.rb,11,23,63
+Java,/home/brombaut/work/java-callgraph/src/main/java/gr/gousiosg/javacg/stat/JCallGraph.java,15,33,62
+Java,/home/brombaut/work/java-callgraph/src/main/java/gr/gousiosg/javacg/stat/ClassVisitor.java,12,31,56
+Java,/home/brombaut/work/java-callgraph/src/test/java/gr/gousiosg/javacg/StepDefinitions.java,9,1,38
+Java,/home/brombaut/work/java-callgraph/src/main/java/gr/gousiosg/javacg/dyn/Pair.java,9,27,34
+XML,/home/brombaut/work/java-callgraph/assembly-dyn.xml,2,0,28
+XML,/home/brombaut/work/java-callgraph/assembly-st.xml,2,0,28
+Cucumber,/home/brombaut/work/java-callgraph/target/test-classes/gr/gousiosg/javacg/native.feature,2,1,17
+Java,/home/brombaut/work/java-callgraph/src/test/java/gr/gousiosg/javacg/RunCucumberTest.java,2,0,8
+Properties,/home/brombaut/work/java-callgraph/target/maven-archiver/pom.properties,0,2,3
+JSON,/home/brombaut/work/java-callgraph/ast.json,1,0,1
+SUM,,200,268,1166

@@ -1,0 +1,214 @@
+[da81eeb] Georgios Gousios 2018-10-24 Support native methods when resolving dynamic calls
+1	1	src/main/java/gr/gousiosg/javacg/stat/DynamicCallManager.java
+20	0	src/test/resources/gr/gousiosg/javacg/native.feature
+
+[1bb5cb9] Georgios Gousios 2018-10-24 Add license
+28	0	src/main/java/gr/gousiosg/javacg/dyn/Pair.java
+
+[b85c154] Georgios Gousios 2018-10-24 Change license as per author's request
+8	23	src/main/java/gr/gousiosg/javacg/stat/DynamicCallManager.java
+
+[7cf9964] Georgios Gousios 2018-10-23 Convert processing loop to stream
+13	5	src/main/java/gr/gousiosg/javacg/stat/ClassVisitor.java
+49	19	src/main/java/gr/gousiosg/javacg/stat/JCallGraph.java
+14	7	src/main/java/gr/gousiosg/javacg/stat/MethodVisitor.java
+
+[9c0966a] Georgios Gousios 2018-10-23 Merge branch 'matthieu-vergne-fix/broken_call_graph_for_nested_lambdas'
+[ad203c1] Georgios Gousios 2018-10-23 Add license header; minor style fixes
+35	11	src/main/java/gr/gousiosg/javacg/stat/DynamicCallManager.java
+
+[48a5bf0] Georgios Gousios 2018-10-23 Merge branch 'fix/broken_call_graph_for_nested_lambdas' of https://github.com/matthieu-vergne/java-callgraph into matthieu-vergne-fix/broken_call_graph_for_nested_lambdas
+[4589557] Georgios Gousios 2018-10-23 Merge branch 'matthieu-vergne-feature/functional_testing'
+[93c5f54] Georgios Gousios 2018-10-23 Change package names to match main project
+1	1	src/test/java/{ => gr/gousiosg}/javacg/JARBuilder.java
+1	1	src/test/java/{ => gr/gousiosg}/javacg/RunCucumberTest.java
+1	1	src/test/java/{ => gr/gousiosg}/javacg/StepDefinitions.java
+0	0	src/test/resources/{ => gr/gousiosg}/javacg/lambda.feature
+
+[98b6a97] Georgios Gousios 2018-10-23 Merge branch 'feature/functional_testing' of https://github.com/matthieu-vergne/java-callgraph into matthieu-vergne-feature/functional_testing
+[6b0dcf5] Georgios Gousios 2018-10-23 Merge pull request #20 from matthieu-vergne/fix/warnings
+[c46398c] Georgios Gousios 2018-10-23 Merge branch 'matthieu-vergne-fix/jar_resource_leak'
+[a90993c] Georgios Gousios 2018-10-23 Remove whitespace
+3	3	src/main/java/gr/gousiosg/javacg/stat/JCallGraph.java
+
+[e84db11] Matthieu Vergne 2018-10-22 Fix: BCEL bug fixed in 6.1.
+1	1	pom.xml
+1	1	src/main/java/gr/gousiosg/javacg/stat/DynamicCallManager.java
+
+[cd4c548] Matthieu Vergne 2018-10-22 Fix: ConstantMethodref only is too narrow.
+2	2	src/main/java/gr/gousiosg/javacg/stat/DynamicCallManager.java
+
+[3249600] Matthieu Vergne 2018-10-21 Fix: Missing method name in nested lambdas (broken call graph).
+8	2	src/main/java/gr/gousiosg/javacg/stat/ClassVisitor.java
+116	0	src/main/java/gr/gousiosg/javacg/stat/DynamicCallManager.java
+
+[6c06e51] Matthieu Vergne 2018-10-21 Highlight the broken call graphs of nested lambdas with a test.
+40	0	src/test/resources/javacg/lambda.feature
+
+[e191b82] Matthieu Vergne 2018-10-20 Add test for lambda retrieval.
+18	0	pom.xml
+117	0	src/test/java/javacg/JARBuilder.java
+10	0	src/test/java/javacg/RunCucumberTest.java
+48	0	src/test/java/javacg/StepDefinitions.java
+37	0	src/test/resources/javacg/lambda.feature
+
+[c9c24b7] Matthieu Vergne 2018-10-20 Fix warning: Explicitly accept any class.
+1	1	src/main/java/gr/gousiosg/javacg/dyn/Pair.java
+
+[1019a79] Matthieu Vergne 2018-10-20 Fix warning: Explicitly accept any class.
+1	1	src/main/java/gr/gousiosg/javacg/dyn/Instrumenter.java
+
+[6f1e3f5] Matthieu Vergne 2018-10-20 Fix: close JAR resource after use.
+15	15	src/main/java/gr/gousiosg/javacg/stat/JCallGraph.java
+
+[bd61ce5] Georgios Gousios 2017-04-03 Update documentation
+26	22	README.md
+
+[a6709b2] Georgios Gousios 2017-04-03 Make code look more like Java 8
+5	5	src/main/java/gr/gousiosg/javacg/dyn/Instrumenter.java
+10	14	src/main/java/gr/gousiosg/javacg/dyn/MethodStack.java
+
+[4d53e06] Georgios Gousios 2017-04-03 Java 8: Include invokedynamic visitor
+7	2	src/main/java/gr/gousiosg/javacg/stat/MethodVisitor.java
+
+[4f80ad1] Christoph Laaber 2017-03-09 added method parameters in output of static callgraph
+18	18	src/main/java/gr/gousiosg/javacg/stat/MethodVisitor.java
+
+[430f69b] Christoph Laaber 2017-03-01 updated pom dependencies; works now for Java 8 programs (in particular for Lambdas, but I reckon for any byte code that utilizes invokedynamic)
+4	0	.gitignore
+5	5	pom.xml
+
+[86d8f4c] Georgios Gousios 2013-04-16 Merge pull request #3 from Gary-Titus/patch-1
+[6f35c60] Gary 2013-04-15 Changes to documentation
+4	6	README.md
+
+[ed62935] Georgios Gousios 2012-02-03 Updated documentation
+66	17	README.md
+
+[e4598ef] Georgios Gousios 2011-06-22 Style fixes
+20	20	process_trace.rb
+
+[9a56c68] Georgios Gousios 2011-06-22 Add semicolon to result ouput for consistency
+1	1	src/main/java/gr/gousiosg/javacg/stat/ClassVisitor.java
+
+[0113d25] Georgios Gousios 2011-06-22 Script to process method trace result file
+97	0	process_trace.rb
+
+[327cf1c] Georgios Gousios 2011-06-18 Mark invoked methods with identifiers, to differentiate interface from virtual method from static method invocations
+2	2	src/main/java/gr/gousiosg/javacg/stat/ClassVisitor.java
+23	5	src/main/java/gr/gousiosg/javacg/stat/MethodVisitor.java
+
+[bfbb98b] Georgios Gousios 2011-06-18 Shut-up maven warning
+3	2	pom.xml
+
+[1e7a545] Georgios Gousios 2011-06-18 Rename constructor calls from ClassName -> <init>
+9	3	src/main/java/gr/gousiosg/javacg/dyn/Instrumenter.java
+3	3	src/main/java/gr/gousiosg/javacg/dyn/{Graph.java => MethodStack.java}
+
+[85c69db] Panos Louridas 2011-06-17 Add support for relationships between classes.
+21	2	src/main/java/gr/gousiosg/javacg/stat/ClassVisitor.java
+2	1	src/main/java/gr/gousiosg/javacg/stat/MethodVisitor.java
+
+[59352db] Georgios Gousios 2011-06-17 Restrict processing to first thread that enters the call trace code
+14	1	src/main/java/gr/gousiosg/javacg/dyn/Graph.java
+
+[f052253] Georgios Gousios 2011-06-17 Trace method execution
+2	0	README.md
+31	3	src/main/java/gr/gousiosg/javacg/dyn/Graph.java
+
+[69a4117] Georgios Gousios 2011-06-13 Documentation style fixes
+22	20	README.md
+
+[3f11503] Georgios Gousios 2011-06-13 Documentation fixes
+19	11	README.md
+
+[0f83bea] Georgios Gousios 2011-06-13 Support processing many Jars at once
+1	1	src/main/java/gr/gousiosg/javacg/dyn/Graph.java
+23	15	src/main/java/gr/gousiosg/javacg/stat/JCallGraph.java
+1	1	src/main/java/gr/gousiosg/javacg/stat/MethodVisitor.java
+
+[11b74b9] Georgios Gousios 2011-06-13 Lots of documentation
+78	8	README.md
+
+[cefeda9] Georgios Gousios 2011-06-13 Different archives for static and dynamic version
+5	1	README.md
+1	1	assembly.xml => assembly-dyn.xml
+30	0	assembly-st.xml
+4	4	pom.xml
+
+[20d0848] Georgios Gousios 2011-06-12 Count number of dynamic invocations
+26	6	src/main/java/gr/gousiosg/javacg/dyn/Graph.java
+1	1	src/main/java/gr/gousiosg/javacg/dyn/Instrumenter.java
+42	0	src/main/java/gr/gousiosg/javacg/dyn/Pair.java
+
+[7f6642c] Georgios Gousios 2011-06-12 Improve documentation
+37	10	README.md
+
+[78aede5] Georgios Gousios 2011-06-12 Various fixes, it almost runs now
+18	5	src/main/java/gr/gousiosg/javacg/dyn/Graph.java
+19	13	src/main/java/gr/gousiosg/javacg/dyn/Instrumenter.java
+
+[5b26bdc] Georgios Gousios 2011-06-11 Print diagnostics and enchanced classes
+39	24	src/main/java/gr/gousiosg/javacg/dyn/Instrumenter.java
+
+[8a39514] Georgios Gousios 2011-06-11 Produce custom JAR for running as a JVM agent
+30	0	assembly.xml
+52	23	pom.xml
+
+[ff1a4d3] Georgios Gousios 2011-06-11 Lincense headers
+28	0	src/main/java/gr/gousiosg/javacg/dyn/Graph.java
+28	0	src/main/java/gr/gousiosg/javacg/dyn/Instrumenter.java
+28	0	src/main/java/gr/gousiosg/javacg/stat/ClassVisitor.java
+28	0	src/main/java/gr/gousiosg/javacg/stat/JCallGraph.java
+28	0	src/main/java/gr/gousiosg/javacg/stat/MethodVisitor.java
+
+[e1e387c] Georgios Gousios 2011-06-11 Dynamic call graph generation based on method instrumentation
+18	0	src/main/java/gr/gousiosg/javacg/dyn/Graph.java
+126	0	src/main/java/gr/gousiosg/javacg/dyn/Instrumenter.java
+
+[7bdc6b5] Georgios Gousios 2011-06-09 A bit of information and javassist as a dependency
+0	10	README
+22	0	README.md
+7	0	pom.xml
+
+[1c09fc5] Georgios Gousios 2011-06-09 Prepare to import the dynamic call graph analyser
+10	0	README
+1	1	src/main/java/gr/gousiosg/{callgraph => javacg/stat}/ClassVisitor.java
+1	3	src/main/java/gr/gousiosg/{callgraph => javacg/stat}/JCallGraph.java
+1	1	src/main/java/gr/gousiosg/{callgraph => javacg/stat}/MethodVisitor.java
+
+[a9adb7b] Georgios Gousios 2011-05-28 Process all files in a jar archive
+21	4	src/main/java/gr/gousiosg/callgraph/JCallGraph.java
+4	2	src/main/java/gr/gousiosg/callgraph/MethodVisitor.java
+
+[78472e2] Georgios Gousios 2011-05-28 Remove extra code, formatting
+11	7	src/main/java/gr/gousiosg/callgraph/ClassVisitor.java
+16	67	src/main/java/gr/gousiosg/callgraph/MethodVisitor.java
+
+[f3ad01c] Georgios Gousios 2011-05-28 Remove asm, import bcel, call graph produced from static referenced class
+3	3	pom.xml
+0	47	src/main/java/gr/gousiosg/callgraph/ClassPrinter.java
+34	0	src/main/java/gr/gousiosg/callgraph/ClassVisitor.java
+9	6	src/main/java/gr/gousiosg/callgraph/JCallGraph.java
+107	0	src/main/java/gr/gousiosg/callgraph/MethodVisitor.java
+
+[fa79212] Georgios Gousios 2011-05-27 Example from the ASM documentation
+47	0	src/main/java/gr/gousiosg/callgraph/ClassPrinter.java
+22	5	src/main/java/gr/gousiosg/callgraph/JCallGraph.java
+
+[f98cdc1] Georgios Gousios 2011-05-27 Basic renames and more ignores
+3	0	.gitignore
+14	6	pom.xml
+1	5	src/main/java/gr/gousiosg/callgraph/{App.java => JCallGraph.java}
+0	38	src/test/java/gr/gousiosg/callgraph/AppTest.java
+
+[bf7276e] Georgios Gousios 2011-05-27 Git ignore files
+10	0	.gitignore
+
+[9c5bd1d] Georgios Gousios 2011-05-27 Simple maven project
+25	0	pom.xml
+13	0	src/main/java/gr/gousiosg/callgraph/App.java
+38	0	src/test/java/gr/gousiosg/callgraph/AppTest.java
+
+[25f5438] Georgios Gousios 2011-05-27 first commit
+0	0	README

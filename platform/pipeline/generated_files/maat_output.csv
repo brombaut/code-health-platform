@@ -1,0 +1,37 @@
+entity,n-revs
+pom.xml,10
+README.md,10
+src/main/java/gr/gousiosg/javacg/dyn/Instrumenter.java,8
+src/main/java/gr/gousiosg/javacg/stat/MethodVisitor.java,7
+src/main/java/gr/gousiosg/javacg/dyn/Graph.java,7
+src/main/java/gr/gousiosg/javacg/stat/ClassVisitor.java,6
+src/main/java/gr/gousiosg/javacg/stat/DynamicCallManager.java,6
+src/main/java/gr/gousiosg/javacg/stat/JCallGraph.java,5
+src/main/java/gr/gousiosg/callgraph/MethodVisitor.java,3
+src/main/java/gr/gousiosg/javacg/dyn/Pair.java,3
+src/main/java/gr/gousiosg/callgraph/JCallGraph.java,3
+.gitignore,3
+README,3
+src/main/java/gr/gousiosg/callgraph/ClassPrinter.java,2
+src/test/resources/javacg/lambda.feature,2
+src/test/java/gr/gousiosg/callgraph/AppTest.java,2
+process_trace.rb,2
+src/main/java/gr/gousiosg/callgraph/ClassVisitor.java,2
+src/main/java/gr/gousiosg/javacg/dyn/{Graph.java => MethodStack.java},1
+src/main/java/gr/gousiosg/javacg/dyn/MethodStack.java,1
+src/test/java/{ => gr/gousiosg}/javacg/StepDefinitions.java,1
+src/test/java/javacg/StepDefinitions.java,1
+assembly.xml => assembly-dyn.xml,1
+src/main/java/gr/gousiosg/{callgraph => javacg/stat}/ClassVisitor.java,1
+src/test/resources/{ => gr/gousiosg}/javacg/lambda.feature,1
+src/main/java/gr/gousiosg/{callgraph => javacg/stat}/JCallGraph.java,1
+src/test/java/{ => gr/gousiosg}/javacg/JARBuilder.java,1
+assembly.xml,1
+src/main/java/gr/gousiosg/callgraph/App.java,1
+src/main/java/gr/gousiosg/{callgraph => javacg/stat}/MethodVisitor.java,1
+assembly-st.xml,1
+src/test/resources/gr/gousiosg/javacg/native.feature,1
+src/test/java/{ => gr/gousiosg}/javacg/RunCucumberTest.java,1
+src/test/java/javacg/JARBuilder.java,1
+src/main/java/gr/gousiosg/callgraph/{App.java => JCallGraph.java},1
+src/test/java/javacg/RunCucumberTest.java,1
