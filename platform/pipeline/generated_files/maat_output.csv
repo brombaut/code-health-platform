@@ -1,37 +1,105 @@
 entity,n-revs
-pom.xml,10
-README.md,10
-src/main/java/gr/gousiosg/javacg/dyn/Instrumenter.java,8
-src/main/java/gr/gousiosg/javacg/stat/MethodVisitor.java,7
-src/main/java/gr/gousiosg/javacg/dyn/Graph.java,7
-src/main/java/gr/gousiosg/javacg/stat/ClassVisitor.java,6
-src/main/java/gr/gousiosg/javacg/stat/DynamicCallManager.java,6
-src/main/java/gr/gousiosg/javacg/stat/JCallGraph.java,5
-src/main/java/gr/gousiosg/callgraph/MethodVisitor.java,3
-src/main/java/gr/gousiosg/javacg/dyn/Pair.java,3
-src/main/java/gr/gousiosg/callgraph/JCallGraph.java,3
-.gitignore,3
-README,3
-src/main/java/gr/gousiosg/callgraph/ClassPrinter.java,2
-src/test/resources/javacg/lambda.feature,2
-src/test/java/gr/gousiosg/callgraph/AppTest.java,2
-process_trace.rb,2
-src/main/java/gr/gousiosg/callgraph/ClassVisitor.java,2
-src/main/java/gr/gousiosg/javacg/dyn/{Graph.java => MethodStack.java},1
-src/main/java/gr/gousiosg/javacg/dyn/MethodStack.java,1
-src/test/java/{ => gr/gousiosg}/javacg/StepDefinitions.java,1
-src/test/java/javacg/StepDefinitions.java,1
-assembly.xml => assembly-dyn.xml,1
-src/main/java/gr/gousiosg/{callgraph => javacg/stat}/ClassVisitor.java,1
-src/test/resources/{ => gr/gousiosg}/javacg/lambda.feature,1
-src/main/java/gr/gousiosg/{callgraph => javacg/stat}/JCallGraph.java,1
-src/test/java/{ => gr/gousiosg}/javacg/JARBuilder.java,1
-assembly.xml,1
-src/main/java/gr/gousiosg/callgraph/App.java,1
-src/main/java/gr/gousiosg/{callgraph => javacg/stat}/MethodVisitor.java,1
-assembly-st.xml,1
-src/test/resources/gr/gousiosg/javacg/native.feature,1
-src/test/java/{ => gr/gousiosg}/javacg/RunCucumberTest.java,1
-src/test/java/javacg/JARBuilder.java,1
-src/main/java/gr/gousiosg/callgraph/{App.java => JCallGraph.java},1
-src/test/java/javacg/RunCucumberTest.java,1
+extract_imports_and_calls.sh,12
+repo_analyzer.py,8
+README.md,5
+.gitignore,5
+data_transform_scripts/parse_import_diffs.py,5
+data_transform_scripts/function_calls_finder.py,4
+extract_imports.sh,4
+analytics/dl_evo_explore.Rmd,4
+analytics/dl_lib_evo_analytics.ipynb,4
+data/csv/import_diffs.csv,4
+data_transform_scripts/source_imports_parser.py,3
+data_transform_scripts/repo_analyzer.py,3
+data_transform_scripts/tests/test_imports.py,3
+data_transform_scripts/tests/test_function_calls_collector.py,3
+data_transform_scripts/repo_import_diffs_totals.py,3
+data-collection/repo-analyzer/my_find_function_calls.py,3
+data/csv/imports.csv,3
+data/csv/releases.csv,3
+data/csv/calls.csv,3
+.idea/vcs.xml,2
+test.sh,2
+.idea/project.iml,2
+repo-collection/aoo_repo_scraper.py,2
+repo-analyzer/parse_import_jsons_to_csv.py,2
+data-collection/repo-analyzer/data/calls@brombaut@tangent@tf_extensions.py.json,2
+requirements.txt,2
+data-collection/repo-analyzer/data/calls@brombaut%ml@my_ml_client.py.json,2
+data_transform_scripts/function_calls_collector.py,2
+repo-analyzer/file_imports_parser.py,2
+data/csv/imports-2020-10-29.csv,2
+data-collection/repo-analyzer/file_function_calls_parser.py,2
+.idea/misc.xml,2
+repo-collection/aoo_repos.json,2
+repo-analyzer/main.py,2
+data-collection/repo-analyzer/data/calls@brombaut%tangent@tf_extensions.py.json,2
+data-collection/astpath_analyze_repo.py,2
+data-collection/astpath_commands.txt,2
+data-collection/{repo_analyzer => repo-analyzer}/find_function_calls.py,1
+data_transform_scripts/library_imports_finder.py,1
+proposal/pics/types_of_imports.png,1
+data-collection/repo_analyzer/find_function_calls.py,1
+proposal/BenRombaut_Milestone3_Summary.pdf,1
+data-collection/repo_analyzer/data/calls@brombaut@ml_stuff@my_ml_client.py.json,1
+data-collection/repo-collection/aoo_repos.json,1
+.idea/inspectionProfiles/profiles_settings.xml,1
+{repo-analyzer => data_transform_scripts}/write_repo_release_to_csv.py,1
+data-collection/{repo_analyzer => repo-analyzer}/data/calls@brombaut@ml_stuff@my_ml_client.py.json,1
+{data-collection/repo-collection => repo-collection}/aoo_repo_scraper.py,1
+data-collection/repo_analyzer/file_function_calls_parser.py,1
+data_transform_scripts/repo_call_diffs_totals.py,1
+repo-analyzer/my_find_function_calls.py,1
+data-collection/repo-analyzer/main.py,1
+data-collection/repo-collection/aoo_repo_scraper.py,1
+__init__.py,1
+{data-collection/repo-analyzer => repo-analyzer}/find_ml_library_imports.py,1
+analytics/plots/imports_across_repos_with_percent.png,1
+{data-collection/repo-analyzer => repo-analyzer}/my_find_function_calls.py,1
+repo-analyzer/find_ml_library_imports.py,1
+data-collection/repo-analyzer/data/calls@brombaut@ml_stuff@my_ml_client.py.json,1
+{data-collection/repo-collection => repo-collection}/repos_from_DLScents.csv,1
+{repo-analyzer => data_transform_scripts}/file_imports_parser.py,1
+extract_diffs_and_timelines.sh,1
+repo-analyzer/{main.py => repo_analyzer.py},1
+data-collection/repo-collection/repos_from_DLScents.csv,1
+data/repos,1
+data-collection/{repo_analyzer => repo-analyzer}/file_function_calls_parser.py,1
+proposal/report/{BenRombaut_CISC873_DraftFinalReport.pdf => BenRombaut_CISC873_FinalReport.pdf},1
+proposal/report/BenRombaut_CISC873_DraftFinalReport.pdf,1
+data_transform_scripts/__init__.py,1
+analytics/plots/projects_reporting.png,1
+{repo-analyzer => data_transform_scripts}/find_ml_library_imports.py,1
+proposal/BenRombaut_Milestone1_Summary.pdf,1
+{data-collection/repo-analyzer => repo-analyzer}/file_function_calls_parser.py,1
+data_transform_scripts/tests/__init__.py,1
+{repo-analyzer => data_transform_scripts}/repo_analyzer.py,1
+data_transform_scripts/parse_call_diffs.py,1
+data_transform_scripts/{file_imports_parser.py => source_imports_parser.py},1
+data-collection/repo_analyzer/data/calls@brombaut@ml_stuff@tf_extensions.py.json,1
+{data-collection/repo-collection => repo-collection}/aoo_repos.json,1
+{repo-analyzer => data_transform_scripts}/parse_import_jsons_to_csv.py,1
+proposal/pics/call_types.png,1
+proposal/BenRombaut_Milestone3_Summary.docx,1
+data_transform_scripts/{find_ml_library_imports.py => library_imports_finder.py},1
+data-collection/repo-analyzer/find_function_calls.py,1
+data-collection/repo-analyzer/find_ml_library_imports.py,1
+proposal/BenRombaut_Milestone1_Summary.docx,1
+.idea/.gitignore,1
+{data-collection/repo-analyzer => repo-analyzer}/main.py,1
+extract_imports.sh => extract_imports_and_calls.sh,1
+proposal/BenRombaut_Milestone2_Summary.docx,1
+run_tests.sh,1
+data_transform_scripts/write_repo_release_to_csv.py,1
+data-collection/repo-analyzer/data/calls@brombaut@ml_stuff@tf_extensions.py.json,1
+.idea/modules.xml,1
+data_transform_scripts/utils.py,1
+repo-analyzer/write_repo_release_to_csv.py,1
+proposal/BenRombaut_Milestone2_Summary.pdf,1
+data_transform_scripts/repo_analyzer.py => repo_analyzer.py,1
+data-collection/repo_analyzer/main.py,1
+repo-analyzer/file_function_calls_parser.py,1
+data_transform_scripts/parse_call_jsons_to_csv.py,1
+analytics/plots/imports_across_repos.png,1
+data-collection/{repo_analyzer => repo-analyzer}/data/calls@brombaut@ml_stuff@tf_extensions.py.json,1
+data-collection/{repo_analyzer => repo-analyzer}/main.py,1

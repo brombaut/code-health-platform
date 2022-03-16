@@ -2,3 +2,7 @@
 .idea/
 call-graph-generation/PyCG
 call-graph-generation/d3-graphviz
+
+// frontend ignore
+node_modules
+build

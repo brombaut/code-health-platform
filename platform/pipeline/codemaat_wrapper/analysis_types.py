@@ -53,3 +53,7 @@ class HotspotAnalysis(Analysis):
         # Create Enclosure JSON
         self._enclosure_json_command.execute().write_out_to_file()
         return self
+
+    def output_file(self):
+        # Hotspot analysis end point is the nclosure diagram json
+        return self._file_index.get("enclosure_diagram")

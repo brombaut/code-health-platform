@@ -1,0 +1,664 @@
+{
+  "name": "root",
+  "name_no_extension": "root",
+  "children": [
+    {
+      "name": "analytics",
+      "name_no_extension": "analytics",
+      "children": [
+        {
+          "name": "dl_lib_evo_analytics.ipynb",
+          "name_no_extension": "dl_lib_evo_analytics",
+          "children": [],
+          "file_language": "Jupyter Notebook",
+          "code_lines": "706",
+          "comment_lines": "3852",
+          "blank_lines": "0",
+          "normalized_weight": 0.3333333333333333,
+          "raw_weight": 4.0
+        }
+      ]
+    },
+    {
+      "name": "repo-collection",
+      "name_no_extension": "repo-collection",
+      "children": [
+        {
+          "name": "aoo_repos.json",
+          "name_no_extension": "aoo_repos",
+          "children": [],
+          "file_language": "JSON",
+          "code_lines": "311",
+          "comment_lines": "0",
+          "blank_lines": "0",
+          "normalized_weight": 0.16666666666666666,
+          "raw_weight": 2.0
+        },
+        {
+          "name": "aoo_repo_scraper.py",
+          "name_no_extension": "aoo_repo_scraper",
+          "children": [],
+          "file_language": "Python",
+          "code_lines": "63",
+          "comment_lines": "13",
+          "blank_lines": "21",
+          "normalized_weight": 0.16666666666666666,
+          "raw_weight": 2.0,
+          "$dependencies": [
+            {
+              "name_no_extension": "repo-collection",
+              "children": [
+                {
+                  "name_no_extension": "requests",
+                  "children": []
+                },
+                {
+                  "name_no_extension": "re",
+                  "children": []
+                },
+                {
+                  "name_no_extension": "json",
+                  "children": []
+                },
+                {
+                  "name_no_extension": "os",
+                  "children": []
+                },
+                {
+                  "name_no_extension": "bs4",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "repos_from_DLScents.csv",
+          "name_no_extension": "repos_from_DLScents",
+          "children": [],
+          "file_language": "CSV",
+          "code_lines": "60",
+          "comment_lines": "0",
+          "blank_lines": "0",
+          "normalized_weight": 0.0,
+          "raw_weight": 0.0
+        }
+      ]
+    },
+    {
+      "name": "data_transform_scripts",
+      "name_no_extension": "data_transform_scripts",
+      "children": [
+        {
+          "name": "parse_import_diffs.py",
+          "name_no_extension": "parse_import_diffs",
+          "children": [],
+          "file_language": "Python",
+          "code_lines": "272",
+          "comment_lines": "11",
+          "blank_lines": "49",
+          "normalized_weight": 0.41666666666666663,
+          "raw_weight": 5.0,
+          "$dependencies": [
+            {
+              "name_no_extension": "data_transform_scripts",
+              "children": [
+                {
+                  "name_no_extension": "csv",
+                  "children": []
+                },
+                {
+                  "name_no_extension": "os",
+                  "children": []
+                },
+                {
+                  "name_no_extension": "utils",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "parse_call_diffs.py",
+          "name_no_extension": "parse_call_diffs",
+          "children": [],
+          "file_language": "Python",
+          "code_lines": "267",
+          "comment_lines": "11",
+          "blank_lines": "51",
+          "normalized_weight": 0.08333333333333333,
+          "raw_weight": 1.0,
+          "$dependencies": [
+            {
+              "name_no_extension": "data_transform_scripts",
+              "children": [
+                {
+                  "name_no_extension": "csv",
+                  "children": []
+                },
+                {
+                  "name_no_extension": "os",
+                  "children": []
+                },
+                {
+                  "name_no_extension": "utils",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "tests",
+          "name_no_extension": "tests",
+          "children": [
+            {
+              "name": "test_function_calls_collector.py",
+              "name_no_extension": "test_function_calls_collector",
+              "children": [],
+              "file_language": "Python",
+              "code_lines": "227",
+              "comment_lines": "25",
+              "blank_lines": "11",
+              "normalized_weight": 0.25,
+              "raw_weight": 3.0,
+              "$dependencies": [
+                {
+                  "name_no_extension": "data_transform_scripts",
+                  "children": [
+                    {
+                      "name_no_extension": "tests",
+                      "children": [
+                        {
+                          "name_no_extension": "unittest",
+                          "children": []
+                        }
+                      ]
+                    },
+                    {
+                      "name_no_extension": "function_calls_collector",
+                      "children": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "test_imports.py",
+              "name_no_extension": "test_imports",
+              "children": [],
+              "file_language": "Python",
+              "code_lines": "96",
+              "comment_lines": "21",
+              "blank_lines": "17",
+              "normalized_weight": 0.25,
+              "raw_weight": 3.0,
+              "$dependencies": [
+                {
+                  "name_no_extension": "data_transform_scripts",
+                  "children": [
+                    {
+                      "name_no_extension": "tests",
+                      "children": [
+                        {
+                          "name_no_extension": "unittest",
+                          "children": []
+                        }
+                      ]
+                    },
+                    {
+                      "name_no_extension": "library_imports_finder",
+                      "children": []
+                    },
+                    {
+                      "name_no_extension": "source_imports_parser",
+                      "children": []
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "function_calls_finder.py",
+          "name_no_extension": "function_calls_finder",
+          "children": [],
+          "file_language": "Python",
+          "code_lines": "155",
+          "comment_lines": "3",
+          "blank_lines": "23",
+          "normalized_weight": 0.3333333333333333,
+          "raw_weight": 4.0,
+          "$dependencies": [
+            {
+              "name_no_extension": "data_transform_scripts",
+              "children": [
+                {
+                  "name_no_extension": "ast",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "repo_call_diffs_totals.py",
+          "name_no_extension": "repo_call_diffs_totals",
+          "children": [],
+          "file_language": "Python",
+          "code_lines": "95",
+          "comment_lines": "0",
+          "blank_lines": "19",
+          "normalized_weight": 0.08333333333333333,
+          "raw_weight": 1.0,
+          "$dependencies": [
+            {
+              "name_no_extension": "data_transform_scripts",
+              "children": [
+                {
+                  "name_no_extension": "utils",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "repo_import_diffs_totals.py",
+          "name_no_extension": "repo_import_diffs_totals",
+          "children": [],
+          "file_language": "Python",
+          "code_lines": "83",
+          "comment_lines": "1",
+          "blank_lines": "19",
+          "normalized_weight": 0.25,
+          "raw_weight": 3.0,
+          "$dependencies": [
+            {
+              "name_no_extension": "data_transform_scripts",
+              "children": [
+                {
+                  "name_no_extension": "utils",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "parse_import_jsons_to_csv.py",
+          "name_no_extension": "parse_import_jsons_to_csv",
+          "children": [],
+          "file_language": "Python",
+          "code_lines": "66",
+          "comment_lines": "0",
+          "blank_lines": "17",
+          "normalized_weight": 0.0,
+          "raw_weight": 0.0,
+          "$dependencies": [
+            {
+              "name_no_extension": "data_transform_scripts",
+              "children": [
+                {
+                  "name_no_extension": "csv",
+                  "children": []
+                },
+                {
+                  "name_no_extension": "json",
+                  "children": []
+                },
+                {
+                  "name_no_extension": "os",
+                  "children": []
+                },
+                {
+                  "name_no_extension": "glob",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "parse_call_jsons_to_csv.py",
+          "name_no_extension": "parse_call_jsons_to_csv",
+          "children": [],
+          "file_language": "Python",
+          "code_lines": "65",
+          "comment_lines": "12",
+          "blank_lines": "17",
+          "normalized_weight": 0.08333333333333333,
+          "raw_weight": 1.0,
+          "$dependencies": [
+            {
+              "name_no_extension": "data_transform_scripts",
+              "children": [
+                {
+                  "name_no_extension": "csv",
+                  "children": []
+                },
+                {
+                  "name_no_extension": "json",
+                  "children": []
+                },
+                {
+                  "name_no_extension": "os",
+                  "children": []
+                },
+                {
+                  "name_no_extension": "glob",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "write_repo_release_to_csv.py",
+          "name_no_extension": "write_repo_release_to_csv",
+          "children": [],
+          "file_language": "Python",
+          "code_lines": "52",
+          "comment_lines": "1",
+          "blank_lines": "13",
+          "normalized_weight": 0.08333333333333333,
+          "raw_weight": 1.0,
+          "$dependencies": [
+            {
+              "name_no_extension": "data_transform_scripts",
+              "children": [
+                {
+                  "name_no_extension": "argparse",
+                  "children": []
+                },
+                {
+                  "name_no_extension": "os",
+                  "children": []
+                },
+                {
+                  "name_no_extension": "csv",
+                  "children": []
+                },
+                {
+                  "name_no_extension": "datetime",
+                  "children": []
+                },
+                {
+                  "name_no_extension": "time",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "source_imports_parser.py",
+          "name_no_extension": "source_imports_parser",
+          "children": [],
+          "file_language": "Python",
+          "code_lines": "48",
+          "comment_lines": "1",
+          "blank_lines": "5",
+          "normalized_weight": 0.25,
+          "raw_weight": 3.0,
+          "$dependencies": [
+            {
+              "name_no_extension": "data_transform_scripts",
+              "children": [
+                {
+                  "name_no_extension": "ast",
+                  "children": []
+                },
+                {
+                  "name_no_extension": "os",
+                  "children": []
+                },
+                {
+                  "name_no_extension": "json",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "utils.py",
+          "name_no_extension": "utils",
+          "children": [],
+          "file_language": "Python",
+          "code_lines": "34",
+          "comment_lines": "0",
+          "blank_lines": "14",
+          "normalized_weight": 0.08333333333333333,
+          "raw_weight": 1.0,
+          "$dependencies": [
+            {
+              "name_no_extension": "data_transform_scripts",
+              "children": [
+                {
+                  "name_no_extension": "csv",
+                  "children": []
+                },
+                {
+                  "name_no_extension": "os",
+                  "children": []
+                },
+                {
+                  "name_no_extension": "datetime",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "function_calls_collector.py",
+          "name_no_extension": "function_calls_collector",
+          "children": [],
+          "file_language": "Python",
+          "code_lines": "31",
+          "comment_lines": "0",
+          "blank_lines": "5",
+          "normalized_weight": 0.16666666666666666,
+          "raw_weight": 2.0,
+          "$dependencies": [
+            {
+              "name_no_extension": "data_transform_scripts",
+              "children": [
+                {
+                  "name_no_extension": "ast",
+                  "children": []
+                },
+                {
+                  "name_no_extension": "os",
+                  "children": []
+                },
+                {
+                  "name_no_extension": "json",
+                  "children": []
+                },
+                {
+                  "name_no_extension": "function_calls_finder",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "library_imports_finder.py",
+          "name_no_extension": "library_imports_finder",
+          "children": [],
+          "file_language": "Python",
+          "code_lines": "29",
+          "comment_lines": "1",
+          "blank_lines": "5",
+          "normalized_weight": 0.08333333333333333,
+          "raw_weight": 1.0,
+          "$dependencies": [
+            {
+              "name_no_extension": "data_transform_scripts",
+              "children": [
+                {
+                  "name_no_extension": "ast",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "repo_analyzer.py",
+      "name_no_extension": "repo_analyzer",
+      "children": [],
+      "file_language": "Python",
+      "code_lines": "112",
+      "comment_lines": "0",
+      "blank_lines": "18",
+      "normalized_weight": 0.6666666666666666,
+      "raw_weight": 8.0,
+      "$dependencies": [
+        {
+          "name_no_extension": "argparse",
+          "children": []
+        },
+        {
+          "name_no_extension": "os",
+          "children": []
+        },
+        {
+          "name_no_extension": "data_transform_scripts",
+          "children": [
+            {
+              "name_no_extension": "library_imports_finder",
+              "children": []
+            },
+            {
+              "name_no_extension": "source_imports_parser",
+              "children": []
+            },
+            {
+              "name_no_extension": "function_calls_collector",
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "extract_imports_and_calls.sh",
+      "name_no_extension": "extract_imports_and_calls",
+      "children": [],
+      "file_language": "Bourne Shell",
+      "code_lines": "44",
+      "comment_lines": "8",
+      "blank_lines": "10",
+      "normalized_weight": 1.0,
+      "raw_weight": 12.0
+    },
+    {
+      "name": "README.md",
+      "name_no_extension": "README",
+      "children": [],
+      "file_language": "Markdown",
+      "code_lines": "23",
+      "comment_lines": "0",
+      "blank_lines": "15",
+      "normalized_weight": 0.41666666666666663,
+      "raw_weight": 5.0
+    },
+    {
+      "name": ".idea",
+      "name_no_extension": ".idea",
+      "children": [
+        {
+          "name": "project.iml",
+          "name_no_extension": "project",
+          "children": [],
+          "file_language": "XML",
+          "code_lines": "17",
+          "comment_lines": "0",
+          "blank_lines": "0",
+          "normalized_weight": 0.16666666666666666,
+          "raw_weight": 2.0
+        },
+        {
+          "name": "vcs.xml",
+          "name_no_extension": "vcs",
+          "children": [],
+          "file_language": "XML",
+          "code_lines": "9",
+          "comment_lines": "0",
+          "blank_lines": "0",
+          "normalized_weight": 0.16666666666666666,
+          "raw_weight": 2.0
+        },
+        {
+          "name": "modules.xml",
+          "name_no_extension": "modules",
+          "children": [],
+          "file_language": "XML",
+          "code_lines": "8",
+          "comment_lines": "0",
+          "blank_lines": "0",
+          "normalized_weight": 0.08333333333333333,
+          "raw_weight": 1.0
+        },
+        {
+          "name": "inspectionProfiles",
+          "name_no_extension": "inspectionProfiles",
+          "children": [
+            {
+              "name": "profiles_settings.xml",
+              "name_no_extension": "profiles_settings",
+              "children": [],
+              "file_language": "XML",
+              "code_lines": "6",
+              "comment_lines": "0",
+              "blank_lines": "0",
+              "normalized_weight": 0.08333333333333333,
+              "raw_weight": 1.0
+            }
+          ]
+        },
+        {
+          "name": "misc.xml",
+          "name_no_extension": "misc",
+          "children": [],
+          "file_language": "XML",
+          "code_lines": "4",
+          "comment_lines": "0",
+          "blank_lines": "0",
+          "normalized_weight": 0.16666666666666666,
+          "raw_weight": 2.0
+        }
+      ]
+    },
+    {
+      "name": "extract_diffs_and_timelines.sh",
+      "name_no_extension": "extract_diffs_and_timelines",
+      "children": [],
+      "file_language": "Bourne Shell",
+      "code_lines": "6",
+      "comment_lines": "0",
+      "blank_lines": "3",
+      "normalized_weight": 0.08333333333333333,
+      "raw_weight": 1.0
+    },
+    {
+      "name": "run_tests.sh",
+      "name_no_extension": "run_tests",
+      "children": [],
+      "file_language": "Bourne Shell",
+      "code_lines": "3",
+      "comment_lines": "0",
+      "blank_lines": "1",
+      "normalized_weight": 0.08333333333333333,
+      "raw_weight": 1.0
+    }
+  ]
+}
