@@ -8,9 +8,11 @@ from structure_dependency_merger.structure_dependency_merger import StructureDep
 
 
 def main(args):
-    # project_for_analysis = ProjectForAnalysis(args.project_directory, after=args.after, before=args.before)
-    project_directory = "/home/brombaut/work/CISC873_TermProject"
-    project_for_analysis = ProjectForAnalysis(project_directory)
+    # project_directory = "/home/brombaut/work/CISC873_TermProject"
+    project_directory = args.project_directory
+    timeframe_after = args.after
+    timeframe_before = args.before
+    project_for_analysis = ProjectForAnalysis(project_directory, after=timeframe_after, before=timeframe_before)
     if args.analysis_type == "hotspot":
         structure_output_file = run_hotspot_analysis(project_for_analysis)
     else:
@@ -36,9 +38,11 @@ def read_json_file(file_path):
     with open(file_path, 'r') as f:
         return json.load(f)
 
+
 def write_json_file(data, file_path):
     with open(file_path, 'w') as f:
         json.dump(data, f)
+
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Run code-health analysis pipne')
