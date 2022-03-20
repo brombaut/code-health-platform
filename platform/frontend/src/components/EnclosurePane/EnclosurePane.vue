@@ -9,7 +9,7 @@
 <script lang="ts">
 import { defineComponent } from 'vue';
 import type { SystemStructureNode } from "@/types"
-import EnclosureDiagram from "@/components/EnclosureDiagram.vue";
+import EnclosureDiagram from "@/components/EnclosurePane/EnclosureDiagram.vue";
 
 export default defineComponent({
     name: "EnclosurePane",

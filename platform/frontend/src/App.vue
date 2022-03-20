@@ -18,9 +18,9 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue'
-import InfoPane from "./components/InfoPane.vue";
-import EnclosurePane from "./components/EnclosurePane.vue";
-import DependencyPane from "./components/DependencyPane.vue";
+import InfoPane from "./components/InfoPane/InfoPane.vue";
+import EnclosurePane from "./components/EnclosurePane/EnclosurePane.vue";
+import DependencyPane from "./components/DependencyPane/DependencyPane.vue";
 import systemStructure from "@/assets/data/structure_and_dependencies.json";
 
 

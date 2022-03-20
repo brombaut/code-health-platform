@@ -7,7 +7,7 @@
 <script lang="ts">
 import { defineComponent } from 'vue';
 import * as d3 from "d3";  // TODO: Maybe dont import this whole thing
-import Zoomer from "./Zoomer";
+import Zoomer from "../EnclosurePane/Zoomer";
 
 export default defineComponent({
     name: "EnclosureDiagram",
