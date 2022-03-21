@@ -6,10 +6,14 @@
 
   <main>
     <section id="left-pane" class="flex-row">
-      <EnclosurePane :systemStructure="systemStructure"/>
+      <EnclosurePane
+        :systemStructure="systemStructure"
+        @enc-node-selected="handleEncNodeSelected"
+        @enc-node-mouse-enter="handleEncNodeMouseEnter"
+        @enc-node-mouse-leave="handleEncNodeMouseLeave"/>
     </section>
     <section id="right-pane" class="flex-column">
-      <InfoPane />
+      <InfoPane :selectedNode="selectedNode"/>
       <DependencyPane />
     </section>
   </main>
@@ -33,8 +37,20 @@ export default defineComponent({
   },
   data() {
     return {
-      systemStructure
+      systemStructure,
+      selectedNode: {},
     };
+  },
+  methods: {
+    handleEncNodeSelected(node) {
+      this.selectedNode = node;
+    },
+    handleEncNodeMouseEnter(node) {
+      // console.log(node);
+    },
+    handleEncNodeMouseLeave(node) {
+      // console.log(node);
+    },
   },
 });
 </script>

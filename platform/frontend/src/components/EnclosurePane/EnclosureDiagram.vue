@@ -1,7 +1,5 @@
 <template>
-  <div id="enclosure-diagram">
-
-  </div>
+  <div id="enclosure-diagram"></div>
 </template>
 
 <script lang="ts">
@@ -16,11 +14,8 @@ export default defineComponent({
             type: Object as () => SystemStructureNode,
             required: true,
         },
-        eventCallbacks: {
-            type: Object,
-            required: true,
-        },
     },
+    emits: ["encNodeSelected", "encNodeMouseEnter", "encNodeMouseLeave"],
     data() {
         const setColor = () => {
             const result = d3.scaleLinear()
@@ -30,8 +25,6 @@ export default defineComponent({
             return (c: any) => result(c);
         };
 
-        const zoomer = new Zoomer(d3)
-
         return {
             lColor: setColor(),
             margin: 200,
@@ -40,7 +33,7 @@ export default defineComponent({
             nodes: null,
             labels: null,
             focus: null,
-            zoomer,
+            zoomer: new Zoomer(d3),
         };
     },
     mounted() {
@@ -66,10 +59,12 @@ export default defineComponent({
         init() {
             this.root = this.makeRoot(this.treeData);
             this.svg = this.makeSvg();
-            this.nodes = this.makeNodes(this.svg, this.root, this.eventCallbacks);
+            this.nodes = this.makeNodes(this.svg, this.root);
             this.labels = this.makeLabels(this.svg, this.root);
             this.focus = this.root;
             this.zoomer.zoomTo(this.zoomer.makeToZoomTo(this.focus), this);
+            // Initially set selected node to root
+            this.setSelectedNode(this.root);
         },
         color(c: any) {
             return this.lColor(c);
@@ -100,10 +95,9 @@ export default defineComponent({
                 .attr("viewBox", `-${minX}, -${minY}, ${width}, ${height}`)
                 // .style("background", this.elementProxy.color(0))
                 .style("cursor", "pointer");
-            console.log(this.container);
             return result;
         },
-        makeNodes(svg, root, callbacks) {
+        makeNodes(svg, root) {
             const result = svg
                 .append("g")
                 .attr("class", "g-node")
@@ -123,9 +117,17 @@ export default defineComponent({
                     else return "WhiteSmoke";
                 })
                 .style("fill-opacity", (d) => d.data.normalized_weight)
-                .on("click", this.eventCallbacks.onClick)
-                .on("mouseenter", this.eventCallbacks.onMouseEnter)
-                .on("mouseleave", this.eventCallbacks.onMouseLeave);
+                .on("click", (event, d) => this.onNodeClick(d))
+                .on("mouseenter", (event, d) => {
+                    this.onNodeHover(d, true);
+                    // TODO: This
+                    // this.tooltip.show(d, event.target);
+                })
+                .on("mouseleave", (event, d) => {
+                    this.onNodeHover(d, false);
+                    // TODO: This
+                    // this.tooltip.hide();
+                });
                 
             return result;
         },
@@ -150,6 +152,67 @@ export default defineComponent({
                     return result;
                 });
             return result;
+        },
+        onNodeClick(node) {
+            if (!node) {
+                node = this.root;
+            }
+            this.setSelectedNode(node);
+            // If not leaf node, zoom to node, else zoom to parent
+            const nodeToZoomTo = node.children || !node.parent ? node : node.parent;
+            this.zoomer.zoom(nodeToZoomTo, this);
+        },
+        onNodeHover(node, enter) {
+            if (enter) {
+                this.$emit("encNodeMouseEnter", node)
+            } else {
+                this.$emit("encNodeMouseLeave", node)
+            }
+        },
+        setSelectedNode(node) {
+            this.focus = node;
+            // Remove selected
+            d3.selectAll(".selected").nodes().map((el) => {
+                el.classList.remove("selected");
+            });
+            const elToSelect = this.findElFromNode(node);
+            elToSelect?.classList.add("selected");
+            this.$emit("encNodeSelected", node)
+        },
+        setHoveringNode(node) {
+            // Remove selected
+            d3.selectAll(".hovering").nodes().map((el) => {
+                el.classList.remove("hovering");
+            });
+            if (!node) {
+                node = this.root;
+            }
+            const elToSelect = this.findElFromNode(node);
+            if (elToSelect) {
+                elToSelect.classList.add("hovering");
+                // TODO: This
+                // this.tooltip.show(node, elToSelect);
+            }
+        },
+        removeHoveringNode(node) {
+            if (!node) {
+                node = this.root;
+            }
+            const elToSelect = this.findElFromNode(node);
+            if (elToSelect) {
+                elToSelect.classList.remove("hovering");
+                // TODO: This
+                this.tooltip.hide();
+            }
+        },
+        findElFromNode(node) {
+            // This could probably be done better
+            const elsToSelect = this.nodes.filter((d) => d === node).nodes();
+            if (elsToSelect.length > 0) {
+                return elsToSelect[0];
+            } else {
+                return null;
+            }
         }
     }
 });

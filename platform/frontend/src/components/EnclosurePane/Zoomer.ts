@@ -17,7 +17,6 @@ export default class Zoomer {
     }
 
     zoomTo(toZoomTo: NodeView, encDiagram: any) {
-        console.log(encDiagram);
         const k = encDiagram.size / toZoomTo.diameter;
         this.view = toZoomTo;
     

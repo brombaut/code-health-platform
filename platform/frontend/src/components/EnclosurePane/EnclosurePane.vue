@@ -2,7 +2,9 @@
   <div id="enclosure-pane">
       <enclosure-diagram
         :treeData="systemStructure"
-        :eventCallbacks="eventCallbacks" />
+        @enc-node-selected="(n) => $emit('encNodeSelected', n)"
+        @enc-node-mouse-enter="(n) => $emit('encNodeMouseEnter', n)"
+        @enc-node-mouse-leave="(n) => $emit('encNodeMouseLeave', n)"/>
   </div>
 </template>
 
@@ -21,23 +23,7 @@ export default defineComponent({
     },
     components: {
         EnclosureDiagram,
-    },
-    data() {
-        const eventCallbacks = {
-            onClick: (event, d) => this.onNodeClick(d),
-            onMouseEnter: (event, d) => {
-                this.onNodeHover(d, true);
-                this.tooltip.show(d, event.target);
-            },
-            onMouseLeave: (event, d) => {
-                this.onNodeHover(d, false);
-                this.tooltip.hide();
-            },
-        };
-        return {
-            eventCallbacks,
-        };
-    },
+    }
 });
 </script>
 
