@@ -22,7 +22,7 @@
           @info-node-mouse-leave="(n) => $emit('infoNodeMouseLeave', n)"
         />
       </div>
-      <NodeFileInformation v-else />
+      <NodeFileInformation v-else :selectedFileNode="selectedNode" />
     </div>
   </div>
 </template>
